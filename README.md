@@ -1,11 +1,9 @@
-## Trabalho das desciplinas LBD, FSI e IHC
+## Trabalho das disciplinas LBD, FSI e IHC
 
 1. [Introdução](#introducao)
 2. [Requisitos para o desenvolvimento](#requisitos)
-3. [Validação](#validacao)
-4. [Utilize um banco de dados noSQL](#nosql)
-5. [API REST (RESOURCES)](#rest)
-6. [Integrantes](#integrantes)
+3. [API REST (RESOURCES)](#rest)
+4. [Integrantes](#integrantes)
 
 <a name="introducao" />
 ### Introdução
@@ -18,75 +16,14 @@ Trabalho
 
 * Banco de Dados Mysql
 * Eclipse IDE
-* Plugin Maven for eclipse
+* Plugin Maven para eclipse
 
-<a name="validacao" />
-### Validações
 
-#### Formulários
-* Um formulário deve conter título e ao menos um campo
-* Um campo deve ter, obrigatoriamente, label e tipo
-* Quando o tipo do campo for radio, obrigatoriamente deve ser preenchido o atributo radio
-
-#### Cadastros
-* O cadastro gerado por um formulário deve ser validado de acordo com suas configurações.
-  
-	Um campo pode ter as seguintes configurações: requerido, tamanho máximo, date, datetime, email, number, etc...
-
-<a name="nosql" />
-### Utilize um banco de dados noSQL
-Utilize um banco de dados noSQL baseado em documentos e grave tudo num único documento 
-
-Exemplo de documento:
-```
-{
-	title: "Título do formulário",
-	fields: [{
-		label: "Nome",
-		type: "text",
-		required: true,
-		placeholder: "Nome:"
-	},{
-		label: "Sexo",
-		type: "radio",
-		required: true,
-		radios: [{
-			"label": "M",
-			"value": "masculino"
-		},{
-			"label": "F",
-			"value": "feminino"
-		}],
-		value: 1
-	},{
-		label: "E-mail",
-		type: "email",
-		required: false,
-		placeholder: "Digite um e-mail"
-	},{
-		label: "idade",
-		type: "number",
-		required: false
-	}],
-	data: [
-		{
-			nome: "Guilherme",
-			sexo: "masculino",
-			email: "guilherme@email.com",
-			idade: 27
-		},
-		{
-			nome: "Rafael",
-			sexo: "masculino"
-		}
-	]
-}
-```
 
 <a name="rest" />
 ### API REST (RESOURCES)
 
-#### Recursos para Template de Formulários
+#### Recursos para criação do layout
 <table width="100%">
 	<thead>
 		<tr>
@@ -540,20 +477,41 @@ _Adiciona um formulário_
 		apelido: ""
 	}
 	```
-<a name="build" />
-### Compilar o client para utilizar em sua aplicação
+<a name="integrantes" />
+### Integrantes
 
-* Pré-requisitos
+Ricardo Mozart Lino n 6872088
+Victor Rodrigues
 
-	Nodejs
+<table width="100%">
+	<thead>
+		<tr>
+			<th width="70%">Nome</th>
+			<th width="30%">Número USP</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Diego Shibata Ramos Da Silva</td>
+			<td>9999999</td>
+		</tr>
+		
+		<tr>
+			<td>Leonardo Cadastro</td>
+			<td>9999999</i></td>
+		</tr>
 
-		npm install -g grunt-cli bower
 
-* Build
+		<tr>
+			<td>Ricardo Mozart Lino</td>
+			<td>6872088</i></td>
+		</tr>
 
-	Execute os seguintes comandos:
 
-		npm install && bower install
+		<tr>
+			<td>Victor Rodrigues</td>
+			<td>9999999</i></td>
+		</tr>
 
-		grunt
-
+	</tbody>
+</table>
