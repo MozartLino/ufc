@@ -2,8 +2,9 @@
 
 1. [Introdução](#introducao)
 2. [Requisitos para o desenvolvimento](#requisitos)
-3. [API REST (RESOURCES)](#rest)
-4. [Integrantes](#integrantes)
+3. [Telas](#telas)  
+4. [API REST (RESOURCES)](#rest)
+5. [Integrantes](#integrantes)
 
 <a name="introducao" />
 ### Introdução
@@ -18,7 +19,28 @@ Trabalho
 * Eclipse IDE
 * Plugin Maven para eclipse
 
+<a name="telas">
+Home
+Login
 
+Cadastro de Usuário
+Alteração de cadastro de Usuario
+Perfil de Usuário
+Ranking de Usuários
+
+Cadastro de Lutador
+Alteração de cadastro de Lutador
+Listagem de Lutadores
+Perfil Lutador
+
+Cadastro de Confrontos
+Alteração de cadastro de Confronto
+Listagem de confrontos por Evento
+
+Cadastro de Evento
+Alteração de cadastro de evento
+
+Confronto(tela para realizar aposta)
 
 <a name="rest" />
 ### API REST (RESOURCES)
@@ -33,9 +55,9 @@ Trabalho
 	</thead>
 	<tbody>
 		<tr>
-			<td><a href="#get-templates">GET /templates<a/></td>
+			<td><a href="#get-templates">POST /usuarios<a/></td>
 			<td>
-				<i>Devolve uma lista de formulários</i>
+				<i>Cadastro um usuário</i>
 			</td>
 		</tr>
 
