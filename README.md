@@ -26,13 +26,16 @@ Donec ac ligula et felis lacinia venenatis nec in ante. Sed aliquam hendrerit en
 * Plugin Maven para eclipse
 
 <a name="telas" />
-
+###Telas
 Home
 Login
 
 <a href="#post-usuarios">Cadastro de Usuário (Finalizado)
+
 <a href="#put-usuarios">Alteração de cadastro de Usuario
+
 <a href="#get-usuarios/{id}">Perfil de Usuário
+
 <a href="#get-usuarios">Ranking de Usuários
 
 <a href="#post-lutadores">Cadastro de Lutador
