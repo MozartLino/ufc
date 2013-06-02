@@ -25,33 +25,35 @@ Donec ac ligula et felis lacinia venenatis nec in ante. Sed aliquam hendrerit en
 * Eclipse IDE
 * Plugin Maven para eclipse
 
-<a name="telas">
+<a name="telas" />
+
 Home
 Login
 
-Cadastro de Usuário
-Alteração de cadastro de Usuario
-Perfil de Usuário
-Ranking de Usuários
+<a href="#post-usuarios">Cadastro de Usuário (Finalizado)
+<a href="#put-usuarios">Alteração de cadastro de Usuario
+<a href="#get-usuarios/{id}">Perfil de Usuário
+<a href="#get-usuarios">Ranking de Usuários
 
-Cadastro de Lutador
-Alteração de cadastro de Lutador
-Listagem de Lutadores
-Perfil Lutador
+<a href="#post-lutadores">Cadastro de Lutador
+<a href="#put-lutadores">Alteração de cadastro de Lutador
+<a href="#get-lutadores/{id}">Perfil Lutador
+<a href="#get-lutadores">Listagem de Lutadores
 
-Cadastro de Confrontos
-Alteração de cadastro de Confronto
-Listagem de confrontos por Evento
+<a href="#post-confrontos">Cadastro de Confrontos
+<a href="#put-confrontos">Alteração de cadastro de Confronto
+<a href="#get-confrontos">Listagem de confrontos por Evento
 
-Cadastro de Evento
-Alteração de cadastro de evento
+<a href="#post-eventos">Cadastro de Evento
+<a href="#put-eventos">Alteração de cadastro de evento
 
-Confronto(tela para realizar aposta)
+<a href="#confrontos">Confronto(tela para realizar aposta)
 
 <a name="rest" />
-### API REST (RESOURCES)
+### API REST (Recursos para criação do layout)
 
-#### Recursos para criação do layout
+###Usuarios
+
 <table width="100%">
 	<thead>
 		<tr>
@@ -61,7 +63,7 @@ Confronto(tela para realizar aposta)
 	</thead>
 	<tbody>
 		<tr>
-			<td><a href="#get-templates">POST /usuarios<a/></td>
+			<td><a href="#post-usuarios">POST /usuarios<a/></td>
 			<td>
 				<i>Cadastro um usuário</i>
 			</td>
@@ -89,26 +91,6 @@ Confronto(tela para realizar aposta)
 	</tbody>
 </table>
 
-#### Recursos para Dados do Formulário
-<table width="100%">
-	<thead>
-		<tr>
-			<th width="40%">Recursos</th>
-			<th width="60%">Descrição</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="#get-templates-id-data">GET /templates/:id/data/</a></td>
-			<td><i>Devolve uma lista dos dados preenchidos em um formulário template</i></td>
-		</tr>
-
-		<tr>
-			<td><a href="#post-templates-id-data">POST /templates/:id/data/</a></td>
-			<td><i>Adiciona um dado num formulário</i></td>
-		</tr>
-	</tbody>
-</table>
 
 
 <a name="get-templates" />
