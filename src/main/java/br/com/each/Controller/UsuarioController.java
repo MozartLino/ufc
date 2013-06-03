@@ -12,7 +12,6 @@ import br.com.each.annotation.Public;
 import br.com.each.dao.UsuarioDAO;
 import br.com.each.model.usuario.UserSession;
 import br.com.each.model.usuario.Usuario;
-import br.com.each.mvc.FileManager;
 
 @Resource
 public class UsuarioController {
@@ -20,19 +19,18 @@ public class UsuarioController {
 	private Result result;
 	private UsuarioDAO usuarioDAO;
 	private UserSession session;
-	private FileManager fileManager;
 
-	public UsuarioController(Result result, UsuarioDAO usuarioDAO, UserSession session, FileManager fileManager) {
+	public UsuarioController(Result result, UsuarioDAO usuarioDAO, UserSession session) {
 		this.result = result;
 		this.usuarioDAO = usuarioDAO;
 		this.session = session;
-		this.fileManager = fileManager;
 	}
 
 	@Post("/usuarios")
 	@Consumes("application/json")
 	public void save(Usuario usuario) {
 		usuarioDAO.salva(usuario);
+		loga(usuario);
 		result.nothing();
 	}
 
@@ -75,11 +73,7 @@ public class UsuarioController {
 	@Consumes("application/json")
 	public void logar(Usuario usuario) {
 
-		usuario = usuarioDAO.valida(usuario);
-
-		if (usuario != null) {
-			session.setUsuario(usuario);
-		}
+		loga(usuario);
 
 		result.redirectTo(UsuarioController.class).perfil();
 	}
@@ -88,5 +82,13 @@ public class UsuarioController {
 	public void deslogar() {
 		session.setUsuario(null);
 		result.nothing();
+	}
+
+	private void loga(Usuario usuario) {
+		usuario = usuarioDAO.valida(usuario);
+
+		if (usuario != null) {
+			session.setUsuario(usuario);
+		}
 	}
 }
