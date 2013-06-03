@@ -2,9 +2,8 @@
 
 1. [Introdução](#introducao)
 2. [Requisitos para o desenvolvimento](#requisitos)
-3. [Telas](#telas)  
-4. [API REST (RESOURCES)](#rest)
-5. [Integrantes](#integrantes)
+3. [API REST (RESOURCES)](#rest)
+4. [Integrantes](#integrantes)
 
 <a name="introducao" />
 ### Introdução
@@ -29,19 +28,6 @@ Donec ac ligula et felis lacinia venenatis nec in ante. Sed aliquam hendrerit en
 ###Telas
 Home
 Login
-
-<a href="#post-usuarios">Cadastro de Usuário (Finalizado)
-
-<a href="#put-usuarios">Alteração de cadastro de Usuario
-
-<a href="#get-usuarios/{id}">Perfil de Usuário
-
-<a href="#get-usuarios">Ranking de Usuários
-
-<a href="#post-lutadores">Cadastro de Lutador
-<a href="#put-lutadores">Alteração de cadastro de Lutador
-<a href="#get-lutadores/{id}">Perfil Lutador
-<a href="#get-lutadores">Listagem de Lutadores
 
 <a href="#post-confrontos">Cadastro de Confrontos
 <a href="#put-confrontos">Alteração de cadastro de Confronto
@@ -68,33 +54,123 @@ Login
 		<tr>
 			<td><a href="#post-usuarios">POST /usuarios<a/></td>
 			<td>
-				<i>Cadastro um usuário</i>
+				<i>Cadastra um usuário</i>
 			</td>
 		</tr>
 
 		<tr>
-			<td><a href="#get-templates-id">GET /templates/:id</a></td>
-			<td><i>Devolve um formulário com todos os campos</i></td>
+			<td><a href="#put-usuarios">PUT /usuarios</a></td>
+			<td><i>Altera um usuário</i></td>
 		</tr>
 
 		<tr>
-			<td><a href="#post-templates">POST /templates</a></td>
-			<td><i>Adiciona um formulário</i></td>
+			<td><a href="#get-usuarios-id">Get /usuarios/:id</a></td>
+			<td><i>Perfil do usuário</i></td>
 		</tr>
 
 		<tr>
-			<td><a href="#put-templates-id">PUT /templates/:id</a></td>
-			<td><i>Atualiza um template</i></td>
+			<td><a href="#get-usuarios">GET /usuarios</a></td>
+			<td><i>Ranking de Usuários</i></td>
+		</tr>
+
+	</tbody>
+</table>
+
+###Lutadores
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th width="40%">Recurso</th>
+			<th width="60%">Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="#post-lutadores">POST /lutadores<a/></td>
+			<td>
+				<i>Cadastra um lutador</i>
+			</td>
 		</tr>
 
 		<tr>
-			<td><a href="#delete-templates-id">DELETE /templates/:id</a></td>
-			<td><i>Remove um template</i></td>
+			<td><a href="#put-lutadores">PUT /lutadores</a></td>
+			<td><i>Altera um lutador</i></td>
 		</tr>
+
+		<tr>
+			<td><a href="#get-lutadores/{id}">Get /lutadores/:id</a></td>
+			<td><i>Perfil do lutador</i></td>
+		</tr>
+
+		<tr>
+			<td><a href="#get-lutadores">GET /lutadores</a></td>
+			<td><i>Lista todos Lutadores</i></td>
+		</tr>
+
+	</tbody>
+</table>
+
+###Confrontos
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th width="40%">Recurso</th>
+			<th width="60%">Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="#post-confrontos">POST /confrontos<a/></td>
+			<td>
+				<i>Cadastra um confronto</i>
+			</td>
+		</tr>
+
+		<tr>
+			<td><a href="#put-confrontos">PUT /confrontos</a></td>
+			<td><i>Altera um confronto</i></td>
+		</tr>
+
+		<tr>
+			<td><a href="#get-confrontos">GET /confrontos</a></td>
+			<td><i>Lista todos confrontos por evento</i></td>
+		</tr>
+
 	</tbody>
 </table>
 
 
+###Eventos
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th width="40%">Recurso</th>
+			<th width="60%">Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="#post-confrontos">POST /confrontos<a/></td>
+			<td>
+				<i>Cadastra um confronto</i>
+			</td>
+		</tr>
+
+		<tr>
+			<td><a href="#put-confrontos">PUT /confrontos</a></td>
+			<td><i>Altera um confronto</i></td>
+		</tr>
+
+		<tr>
+			<td><a href="#get-confrontos">GET /confrontos</a></td>
+			<td><i>Lista todos confrontos por evento</i></td>
+		</tr>
+
+	</tbody>
+</table>
 
 <a name="get-templates" />
 #### GET /templates
