@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
 import br.com.each.model.usuario.Usuario;
+import br.com.each.model.usuario.UsuarioRepresentation;
 
 @Component
 public class UsuarioDAO {
@@ -83,8 +84,8 @@ public class UsuarioDAO {
 		}
 	}
 
-	public List<Usuario> ranking() {
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+	public List<UsuarioRepresentation> ranking() {
+		List<UsuarioRepresentation> usuarios = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
 			pstm = this.connection
@@ -97,14 +98,15 @@ public class UsuarioDAO {
 							"ORDER BY pontos DESC;");
 			ResultSet set = pstm.executeQuery();
 			while (set.next()) {
-				Usuario usuario = new Usuario();
-				usuario.setId(set.getLong("cod_usuario"));
-				usuario.setLogin(set.getString("login"));
-				usuario.setEmail(set.getString("email"));
-				usuario.setNome(set.getString("nome"));
-				usuario.setCpf(set.getString("cpf"));
-				usuario.setPerfil(set.getInt("perfil"));
-				usuarios.add(usuario);
+				UsuarioRepresentation representatioj = new UsuarioRepresentation();
+				representatioj.setId(set.getLong("cod_usuario"));
+				representatioj.setLogin(set.getString("login"));
+				representatioj.setEmail(set.getString("email"));
+				representatioj.setNome(set.getString("nome"));
+				representatioj.setCpf(set.getString("cpf"));
+				representatioj.setPerfil(set.getInt("perfil"));
+				representatioj.setPontos(set.getLong("pontos"));
+				usuarios.add(representatioj);
 			}
 			pstm.close();
 			connection.close();

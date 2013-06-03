@@ -1,9 +1,6 @@
 package br.com.each.Controller;
 
-import java.util.List;
-
 import br.com.caelum.vraptor.Consumes;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
@@ -26,10 +23,6 @@ public class ApostaController {
 		this.session = session;
 	}
 
-	@Get("aposta/novo")
-	public void novo() {
-	}
-
 	@Post("aposta/salva")
 	@Consumes("application/json")
 	public void salva(Aposta aposta) {
@@ -45,8 +38,4 @@ public class ApostaController {
 		result.use(Results.status()).ok();
 	}
 
-	@Get("/apostas/user/{id}")
-	public List<Aposta> listaPorUsuario(Long id) {
-		return apostaDAO.listaPorUsuario(id);
-	}
 }

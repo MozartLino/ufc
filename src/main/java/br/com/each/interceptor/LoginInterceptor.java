@@ -27,7 +27,7 @@ public class LoginInterceptor implements Interceptor {
 		if (userSession.isLogado()) {
 			stack.next(method, resourceInstance);
 		} else {
-			// result.redirectTo(UsuarioController.class).l
+			result.notFound();
 		}
 	}
 

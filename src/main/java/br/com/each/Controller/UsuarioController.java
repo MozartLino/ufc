@@ -1,14 +1,12 @@
 package br.com.each.Controller;
 
-import java.io.File;
-
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.annotation.Public;
 import br.com.each.dao.UsuarioDAO;
@@ -31,25 +29,17 @@ public class UsuarioController {
 		this.fileManager = fileManager;
 	}
 
-	@Get("usuarios")
-	public void form() {
-	}
-
-	@Get("usuarios/{id}")
-	public void getUser(Long id) {
-		result.use(Results.json()).withoutRoot().from(usuarioDAO.buscaPoId(id)).serialize();
-	}
-
-	@Post("usuarios")
+	@Post("/usuarios")
 	@Consumes("application/json")
-	public void salva(Usuario usuario) {
+	public void save(Usuario usuario) {
 		usuarioDAO.salva(usuario);
 		result.nothing();
 	}
 
-	@Delete("/usuarios/{id}")
-	public void remove(Long id) {
-		usuarioDAO.remove(id);
+	@Put("/usuarios/{id}")
+	@Consumes("application/json")
+	public void update(Usuario usuario, Long id) {
+		usuarioDAO.altera(usuario);
 		result.nothing();
 	}
 
@@ -58,21 +48,27 @@ public class UsuarioController {
 		result.use(Results.json()).withoutRoot().from(usuarioDAO.buscaPoId(session.getUsuario().getId())).serialize();
 	}
 
+	@Delete("/usuarios/{id}")
+	public void remove(Long id) {
+		usuarioDAO.remove(id);
+		result.nothing();
+	}
+
 	@Get("/ranking")
 	public void ranking() {
 		result.use(Results.json()).withoutRoot().from(usuarioDAO.ranking()).serialize();
 	}
 
-	@Post("/usuarios/foto")
-	public void salva(UploadedFile filename) {
-		fileManager.upload(filename, "usuarios" + File.separator + session.getUsuario().getId());
-		result.nothing();
-	}
-
-	@Get("/usuarios/foto")
-	public File foto() {
-		return fileManager.download("usuarios" + File.separator + session.getUsuario().getId());
-	}
+	// @Post("/usuarios/foto")
+	// public void salva(UploadedFile filename) {
+	// fileManager.upload(filename, "usuarios" + File.separator + session.getUsuario().getId());
+	// result.nothing();
+	// }
+	//
+	// @Get("/usuarios/foto")
+	// public File foto() {
+	// return fileManager.download("usuarios" + File.separator + session.getUsuario().getId());
+	// }
 
 	@Public
 	@Post("/logar")
