@@ -196,7 +196,8 @@ _Devolve uma lista de usuarios._
 		}
 	]
 	```
-<a name="get-templates-id" />
+	
+<a name="get-usuarios-id" />
 #### GET /templates/:id
 
 _Devolve um formulário com todos os campos_
@@ -389,6 +390,7 @@ _Adiciona um formulário_
 		}]
 	}	
 	```
+	
 	```
 	{
 		_id: "519a7d41c38f6b4eb02df70c"
@@ -452,6 +454,7 @@ _Adiciona um formulário_
 		}]
 	}
 	```
+	
 	```
 	{
 		_id: "519a7d41c38f6b4eb02df70c",
