@@ -2,8 +2,9 @@
 
 1. [Introdução](#introducao)
 2. [Requisitos para o desenvolvimento](#requisitos)
-3. [API REST (RESOURCES)](#rest)
-4. [Integrantes](#integrantes)
+3. [Telas do site](#telas)
+4. [API REST (RESOURCES)](#rest)
+5. [Integrantes](#integrantes)
 
 <a name="introducao" />
 ### Introdução
@@ -16,7 +17,6 @@ Praesent vitae purus elit. Proin congue, lacus nec lobortis tempor, magna nisl e
 
 Donec ac ligula et felis lacinia venenatis nec in ante. Sed aliquam hendrerit enim, vel bibendum ligula tristique et. Maecenas cursus, eros eget dignissim elementum, odio ipsum lacinia eros, non convallis lectus quam eget tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit euismod eros, ut imperdiet justo imperdiet at. Pellentesque hendrerit euismod fringilla. Duis vel neque non sem sollicitudin cursus vel vitae nulla. Duis non sem nibh, vitae condimentum eros. Nulla dapibus fringilla ligula, in congue erat porta et. Vivamus malesuada mattis turpis id accumsan. Suspendisse volutpat neque eget dolor pretium vel cursus libero ultrices. Nunc condimentum porta turpis, id rhoncus sapien hendrerit non. Integer molestie volutpat sem a hendrerit. Vestibulum euismod, dolor in lobortis semper, lorem massa interdum dolor, quis ultrices metus dolor in arcu.
 
-
 <a name="requisitos" />
 ### Requisitos do desenvolvimento
 
@@ -25,18 +25,12 @@ Donec ac ligula et felis lacinia venenatis nec in ante. Sed aliquam hendrerit en
 * Plugin Maven para eclipse
 
 <a name="telas" />
-###Telas
-Home
-Login
+### Telas do site
 
-<a href="#post-confrontos">Cadastro de Confrontos
-<a href="#put-confrontos">Alteração de cadastro de Confronto
-<a href="#get-confrontos">Listagem de confrontos por Evento
+HOME<br />
+LOGIN<br />
+Cadastro de Usuario<br />
 
-<a href="#post-eventos">Cadastro de Evento
-<a href="#put-eventos">Alteração de cadastro de evento
-
-<a href="#confrontos">Confronto(tela para realizar aposta)
 
 <a name="rest" />
 ### API REST (Recursos para criação do layout)
@@ -142,7 +136,7 @@ Login
 </table>
 
 
-###Eventos
+###Evento
 
 <table width="100%">
 	<thead>
@@ -153,70 +147,52 @@ Login
 	</thead>
 	<tbody>
 		<tr>
-			<td><a href="#post-confrontos">POST /confrontos<a/></td>
+			<td><a href="#post-eventos">POST /eventos<a/></td>
 			<td>
-				<i>Cadastra um confronto</i>
+				<i>Cadastra um eventos</i>
 			</td>
 		</tr>
 
 		<tr>
-			<td><a href="#put-confrontos">PUT /confrontos</a></td>
-			<td><i>Altera um confronto</i></td>
+			<td><a href="#put-confrontos">PUT /eventos</a></td>
+			<td><i>Altera um eventos</i></td>
 		</tr>
-
-		<tr>
-			<td><a href="#get-confrontos">GET /confrontos</a></td>
-			<td><i>Lista todos confrontos por evento</i></td>
-		</tr>
-
 	</tbody>
 </table>
 
-<a name="get-templates" />
-#### GET /templates
+<a name="get-usuarios" />
+#### GET /usuarios
 
-_Devolve uma lista de formulários._
+_Devolve uma lista de usuarios._
 
 	Url do recurso
 
-	http://<SEU-DOMINIO>:8080/coletor/templates
+	http://localhost:8080/ufc/usuarios
 
 	Exemplo de requisição
 
-	GET http://<SEU-DOMINIO>:8080/coletor/templates
+	GET http://localhost:8080/coletor/templates
 	```
 	[
 		{
 			"id": "1",
-			"title": "Título do form",
-			"fields": [
-				{
-					"label": "nome"
-				},
-				{
-					"label": "email"
-				},
-				{
-					"label": "telefone"
-				}
-			],
-			"dataCount": "1000"
+			"nome": "Ricardo Mozart Lino",
+			"cpf": "39764341837",
+			"login": "ricardo.mozart",
+			"email": "ricardo.mozart@gmail.com"
+			"perfil": "1"
+
+
 		},
 		{
-			"id": "2",
-			"title": "Título do form",
-			"fields": [
-				{
-					"label": "nome"
-				},
-				{
-					"label": "email"
-				},
-				{
-					"label": "telefone"
-				}
-			],
-			"dataCount": "1000"
+			"id": "1",
+			"nome": "Ricardo Mozart Lino",
+			"cpf": "39764341837",
+			"login": "ricardo.mozart",
+			"email": "ricardo.mozart@gmail.com"
+			"perfil": "1"
+
+
 		}
 	]
 	```
