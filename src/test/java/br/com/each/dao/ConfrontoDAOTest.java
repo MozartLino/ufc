@@ -1,6 +1,8 @@
 package br.com.each.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class ConfrontoDAOTest {
 
 	@Test
 	public void testaMetodoListaConfrontosAbertos() {
-		assertEquals("Nao trouxe confrontos abertos", 3, new ConfrontoDAO().abertos().size());
+		assertEquals("Nao trouxe confrontos abertos", 1, new ConfrontoDAO().abertos().size());
 	}
 
 	@Test
@@ -25,7 +27,7 @@ public class ConfrontoDAOTest {
 
 	@Test
 	public void testaMetodoListaConfrontosFinalizados() {
-		assertEquals("Nao trouxe os confronto finalizados", 1, new ConfrontoDAO().finalizados().size());
+		assertEquals("Nao trouxe os confronto finalizados", 3, new ConfrontoDAO().finalizados().size());
 	}
 
 	@Before
