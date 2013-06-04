@@ -20,13 +20,13 @@ public class PayloadUFCBD {
 	public void populaBanco() {
 		try {
 
-			pstm = this.connection.prepareStatement("drop database makeyourbad;");
+			pstm = this.connection.prepareStatement("drop database makeyourbet;");
 			pstm.execute();
 
-			pstm = this.connection.prepareStatement("create database makeyourbad;");
+			pstm = this.connection.prepareStatement("create database makeyourbet;");
 			pstm.execute();
 
-			pstm = this.connection.prepareStatement("use makeyourbad;");
+			pstm = this.connection.prepareStatement("use makeyourbet;");
 			pstm.execute();
 
 			// CREATE TABLE TIPO VITORIA
@@ -186,6 +186,8 @@ public class PayloadUFCBD {
 			pstm.execute();
 
 			pstm.close();
+
+			System.out.println("sucesso");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
