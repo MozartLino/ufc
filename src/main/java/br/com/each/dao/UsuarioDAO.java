@@ -85,7 +85,7 @@ public class UsuarioDAO {
 	}
 
 	public List<UsuarioRepresentation> ranking() {
-		List<UsuarioRepresentation> usuarios = new ArrayList<>();
+		List<UsuarioRepresentation> usuarios = new ArrayList<UsuarioRepresentation>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
 			pstm = this.connection
