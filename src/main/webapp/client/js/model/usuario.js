@@ -1,7 +1,15 @@
-function usuarioForm($scope, $window, $http) {
+function usuarioFormController($scope, $window, $http, $routeParams) {
+
+	(function() {
+		var url = "/usuarios/" + $routeParams.usuarioId;
+		$http.get(url).success(function(data) {
+			$scope.usuario = data;
+		});
+
+	})();
 
 	$scope.salvaPaciente = function() {
-		var url = "/#usuarios";
+		var url = "/usuarios";
 
 		$http({
 			method : getMethod($scope.usuario.id),
@@ -23,7 +31,7 @@ function getMethod(value) {
 function usuarioRankingController($scope, $window, $http) {
 
 	lista = function() {
-		$http.get('http://localhost:8080/ufc/ranking').success(function(data) {
+		$http.get('/ranking').success(function(data) {
 			$scope.usuarios = data;
 		});
 	}();

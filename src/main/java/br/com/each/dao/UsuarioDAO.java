@@ -89,13 +89,22 @@ public class UsuarioDAO {
 		try {
 			this.connection = ConnectionFactory.getConnection();
 			pstm = this.connection
-					.prepareStatement("SELECT COUNT(*) as pontos, u.cod_usuario, u.cpf, u.nome, u.login, u.email, u.perfil FROM tb_usuario u  "
-							+
-							"INNER JOIN tb_aposta a ON u.cod_usuario = a.cod_usuario " +
-							"INNER JOIN tb_confronto c ON c.cod_confronto = a.cod_confronto " +
-							"WHERE a.cod_lutador = c.cod_vencedor  " +
-							"GROUP BY u.cod_usuario " +
-							"ORDER BY pontos DESC;");
+					.prepareStatement("SELECT"
+							+ " COUNT(a.cod_usuario) as pontos,"
+							+ " u.cod_usuario, "
+							+ " u.cpf,"
+							+ " u.nome,"
+							+ " u.login,"
+							+ " u.email,"
+							+ " u.perfil"
+							+ " FROM "
+							+ "     tb_usuario u "
+							+ "     INNER JOIN tb_aposta a "
+							+ "         ON u.cod_usuario = a.cod_usuario "
+							+ "     INNER JOIN tb_confronto c "
+							+ "         ON c.cod_confronto = a.cod_confronto AND a.cod_lutador = c.cod_vencedor "
+							+ " GROUP BY u.cod_usuario "
+							+ " ORDER BY pontos DESC ");
 			ResultSet set = pstm.executeQuery();
 			while (set.next()) {
 				UsuarioRepresentation representatioj = new UsuarioRepresentation();

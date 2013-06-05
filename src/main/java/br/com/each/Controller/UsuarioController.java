@@ -46,6 +46,11 @@ public class UsuarioController {
 		result.use(Results.json()).withoutRoot().from(usuarioDAO.buscaPoId(session.getUsuario().getId())).serialize();
 	}
 
+	@Get("/usuarios/{id}")
+	public void perfil(Long id) {
+		result.use(Results.json()).withoutRoot().from(usuarioDAO.buscaPoId(id)).serialize();
+	}
+
 	@Delete("/usuarios/{id}")
 	public void remove(Long id) {
 		usuarioDAO.remove(id);
