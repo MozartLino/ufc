@@ -36,7 +36,7 @@ public class UsuarioController {
 
 	@Put("/usuarios/{id}")
 	@Consumes("application/json")
-	public void update(Usuario usuario, Long id) {
+	public void update(Usuario usuario) {
 		usuarioDAO.altera(usuario);
 		result.nothing();
 	}
