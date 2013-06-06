@@ -22,7 +22,7 @@ function usuarioFormController($scope, $window, $http, $routeParams) {
 			$window.window.location.href = "/#perfil";
 		});
 	};
-	
+
 	function getMethod(value) {
 		return value == null ? "post" : "put";
 	}
@@ -33,6 +33,16 @@ function usuarioRankingController($scope, $window, $http) {
 	lista = function() {
 		$http.get('ranking').success(function(data) {
 			$scope.usuarios = data;
+		});
+	}();
+
+}
+
+function usuarioPerfilController($scope, $window, $http) {
+
+	initPerfil = function() {
+		$http.get('perfil').success(function(data) {
+			$scope.usuario = data;
 		});
 	}();
 
