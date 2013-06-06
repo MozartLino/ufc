@@ -1,22 +1,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html ng-app="project">
+<html ng-app="ufc">
 <head>
 <link rel="stylesheet" href="client/css/style.css" />
-<link rel="stylesheet" href="client/css/reset.css" />
-<link rel="stylesheet" href="client/css/form.css" />
+<link rel="icon" href="client/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="client/images/favicon.ico"
+	type="image/x-icon">
 <script src="client/js/angular.min.js"></script>
 <script src="client/js/jquery-1.8.2.min.js"></script>
 <script src="client/js/angular-resource.min.js"></script>
-<script src="client/js/project.js"></script>
+<script src="client/js/route.js"></script>
 <script src="client/js/model/usuario.js"></script>
+<script src="client/js/model/lutador.js"></script>
 <script src="client/js/model/confronto.js"></script>
 </head>
 <body>
-	<h2>header asdfasdfasdfasdfsdaf</h2>
+	<!--=====HEADER=====-->
+	<header>
+	<div class="main">
+		<div class="inner">
+			<div class="wrapper"></div>
+			<h1>
+				<a href="index.html">Concept interior</a>
+			</h1>
+			<nav>
+			<ul class="sf-menu sf-js-enabled">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="index-1.html">Company</a></li>
+				<li class=""><a href="index-2.html" class="sf-with-ul">Services<b
+						class="sf-sub-indicator"></b></a>
+					<ul style="display: none;">
+						<li><a href="more.html">services List</a></li>
+						<li><a href="more.html" class="sf-with-ul">Special Offer<b
+								class="sf-sub-indicator"></b></a>
+							<ul style="display: none;">
+								<li><a href="more.html">Unique Design</a></li>
+								<li><a href="more.html">creating style</a></li>
+							</ul></li>
+						<li><a href="more.html">Support</a></li>
+					</ul></li>
+				<li><a href="index-3.html">Gallery</a></li>
+				<li class="last"><a href="index-4.html" class="active">Contacts</a></li>
+			</ul>
+			</nav>
+			<div class="clear"></div>
+		</div>
+	</div>
+	</header>
 
 	<div ng-view></div>
 
-	<h2>RODAPE</h2>
 </body>
 </html>
