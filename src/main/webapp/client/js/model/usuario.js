@@ -1,7 +1,7 @@
 function usuarioFormController($scope, $window, $http, $routeParams) {
 
 	init = function() {
-		var url = "/usuarios/" + $routeParams.usuarioId;
+		var url = "usuarios/" + $routeParams.usuarioId;
 		$http.get(url).success(function(data) {
 			$scope.usuario = data;
 		});
@@ -22,10 +22,10 @@ function usuarioFormController($scope, $window, $http, $routeParams) {
 			$window.window.location.href = "/#perfil";
 		});
 	};
-}
-
-function getMethod(value) {
-	return value == null ? "post" : "put";
+	
+	function getMethod(value) {
+		return value == null ? "post" : "put";
+	}
 }
 
 function usuarioRankingController($scope, $window, $http) {
