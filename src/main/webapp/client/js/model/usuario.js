@@ -23,7 +23,6 @@ function usuarioFormController($scope, $window, $http, $routeParams) {
 				"usuario" : $scope.usuario
 			}
 		}).success(function(data) {
-			$scope.usuarios = data;
 			$window.window.location.href = "/#perfil";
 		});
 	};

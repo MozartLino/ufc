@@ -21,8 +21,7 @@ function confrontoFormController($scope, $window, $http) {
 			data : {
 				"confronto" : $scope.confronto
 			}
-		}).success(function(data) {
-			$scope.confrontos = data;
+		}).success(function() {
 			$window.window.location.href = "/#abertos";
 		});
 	};
