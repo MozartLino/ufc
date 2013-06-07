@@ -29,17 +29,12 @@ function confrontoFormController($scope, $window, $http) {
 	function getMethod(value) {
 		return value == null ? "post" : "put";
 	}
-
 }
 
-lista = function() {
-	var confrontos = [];
-
-	$http.get('confrontos/abertos').success(function(data) {
-		$.each(data, function() {
-			confrontos.push(this);
+function confrontoAbertosController($scope, $window, $http) {
+	lista = function() {
+		$http.get('confrontos/abertos').success(function(data) {
+			$scope.confrontos = data;
 		});
-		$scope.confrontos = confrontos;
-	});
-
-}();
+	}();
+}

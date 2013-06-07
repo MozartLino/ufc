@@ -11,46 +11,43 @@
 					<div class="hr"></div>
 					<form id="contact-form">
 						<fieldset id="page4">
-							<c:forEach var="confronto" items="${confrontoList}">
-								<div class="padding-2">
-									<div class="col-1">
-										<a href=""><img
-											src="/makeyourbad_2.0/images/page2-img2.jpg" alt=""
-											style="opacity: 1;"><span></span></a> <strong
-											class="project-name">${confronto.lutador1.nome}</strong>
-									</div>
-									<div class="col-info">
-										<p class="info-details">
-											Nome: ${confronto.lutador1.envergadura}<br /> Altura:
-											${confronto.lutador1.altura} <br /> Peso:
-											${confronto.lutador1.peso} <br /> Especialidade:
-											${confronto.lutador1.sumario} <br /> From:
-											${confronto.lutador1.lugar} <br /> Cinturao:
-											${confronto.lutador1.cinturao} <br /> Data de Nascimento:
-											${confronto.lutador1.dataNascimento} <br />
-										</p>
-										<p class="vs-thumb">
-											<img src="/makeyourbad_2.0/images/vs-image.png" alt=""
-												style="width: 40px; margin-top: 40px;">
-										</p>
-										<p class="info-details">
-											Nome: ${confronto.lutador2.envergadura}<br /> Altura:
-											${confronto.lutador2.altura} <br /> Peso:
-											${confronto.lutador2.peso} <br /> Especialidade:
-											${confronto.lutador2.sumario} <br /> From:
-											${confronto.lutador2.lugar} <br /> Cinturao:
-											${confronto.lutador2.cinturao} <br /> Data de Nascimento:
-											${confronto.lutador2.dataNascimento} <br />
-										</p>
-
-									</div>
-									<div class="col-2">
-										<a href=""><img
-											src="/makeyourbad_2.0/images/page2-img1.jpg" alt=""><span></span></a>
-										<strong class="project-name">${confronto.lutador2.nome}</strong>
-									</div>
-									<div class="clear"></div>
+							<div class="padding-2" ng-repeat="confronto in confrontos">
+								<div class="col-1">
+									<a href=""><img src="client/images/page2-img2.jpg" alt=""
+										style="opacity: 1;"><span></span></a> <strong
+										class="project-name">{{confronto.lutador1.nome}}</strong>
 								</div>
+								<div class="col-info">
+									<p class="info-details">
+										Nome: {{confronto.lutador1.envergadura}}<br /> Altura:
+										{{confronto.lutador1.altura}} <br /> Peso:
+										{{confronto.lutador1.peso}} <br /> Especialidade:
+										{{confronto.lutador1.sumario}} <br /> From:
+										{{confronto.lutador1.lugar}} <br /> Cinturao:
+										{{confronto.lutador1.cinturao}} <br /> Data de Nascimento:
+										{{confronto.lutador1.dataNascimento}} <br />
+									</p>
+									<p class="vs-thumb">
+										<img src="client/images/vs-image.png" alt=""
+											style="width: 40px; margin-top: 40px;">
+									</p>
+									<p class="info-details">
+										Nome: {{confronto.lutador2.envergadura}}<br /> Altura:
+										{{confronto.lutador2.altura}} <br /> Peso:
+										{{confronto.lutador2.peso}} <br /> Especialidade:
+										{{confronto.lutador2.sumario}} <br /> From:
+										{{confronto.lutador2.lugar}} <br /> Cinturao:
+										{{confronto.lutador2.cinturao}} <br /> Data de Nascimento:
+										{{confronto.lutador2.dataNascimento}} <br />
+									</p>
+
+								</div>
+								<div class="col-2">
+									<a href=""><img src="client/images/page2-img1.jpg" alt=""><span></span></a>
+									<strong class="project-name">{{confronto.lutador2.nome}}</strong>
+								</div>
+								<div class="clear"></div>
+							</div>
 							</c:forEach>
 						</fieldset>
 					</form>
@@ -143,5 +140,3 @@
 		</div>
 	</div>
 </aside>
-
-<c:import url="../geral/rodape.jsp"></c:import>

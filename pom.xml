@@ -18,9 +18,6 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 
-		<!-- Transaction Management Abstraction (depends on spring-core, spring-beans, 
-			spring-aop, spring-context) Define this if you use Spring Transactions or 
-			DAO Exception Hierarchy (org.springframework.transaction.*/org.springframework.dao.*) -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -188,6 +185,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
 
 </project>

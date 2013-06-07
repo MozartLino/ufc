@@ -53,7 +53,8 @@ public class ConfrontoController {
 
 	@Get("/confrontos/abertos")
 	public void abertos() {
-		result.use(Results.json()).withoutRoot().from(confrontoDAO.abertos()).serialize();
+		result.use(Results.json()).withoutRoot().from(confrontoDAO.abertos()).include("lutador1", "lutador2")
+				.serialize();
 	}
 
 }

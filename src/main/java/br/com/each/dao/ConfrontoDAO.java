@@ -168,7 +168,8 @@ public class ConfrontoDAO {
 		Confronto confronto = null;
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			pstm = this.connection.prepareStatement(query() + " WHERE cod_confronto = ? ORDER BY c.data desc;");
+			String sql = query() + " WHERE cod_confronto = ? ORDER BY c.data desc;";
+			pstm = this.connection.prepareStatement(sql);
 			pstm.setLong(1, id);
 			ResultSet set = pstm.executeQuery();
 			
