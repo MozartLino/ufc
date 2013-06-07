@@ -1,14 +1,19 @@
 function usuarioFormController($scope, $window, $http, $routeParams) {
 
 	init = function() {
-		var url = "usuarios/" + $routeParams.usuarioId;
-		$http.get(url).success(function(data) {
-			$scope.usuario = data;
-		});
 
+		var userId = $routeParams.usuarioId;
+
+		if (userId != undefined) {
+			var url = "usuarios/" + userId;
+
+			$http.get(url).success(function(data) {
+				$scope.usuario = data;
+			});
+		}
 	}();
 
-	$scope.salvaPaciente = function() {
+	$scope.salvaUsuario = function() {
 		var url = "usuarios";
 
 		$http({
