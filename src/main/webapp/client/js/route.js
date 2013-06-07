@@ -20,6 +20,9 @@ angular.module('ufc', []).config(function($routeProvider) {
 	.when('/confronto/abertos', {
 		controller : confrontoAbertosController,
 		templateUrl : 'client/html/confronto/abertos.html'
+	}).when('/confronto/:confrontoId', {
+		controller : confrontoController,
+		templateUrl : 'client/html/confronto/confronto.html'
 	})
 
 	.otherwise({

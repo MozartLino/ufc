@@ -38,3 +38,12 @@ function confrontoAbertosController($scope, $window, $http) {
 		});
 	}();
 }
+
+function confrontoController($scope, $window, $http, $routeParams) {
+	buscaLutadores = function() {
+		var url = "confrontos/" + $routeParams.confrontoId;
+		$http.get(url).success(function(data) {
+			$scope.confronto = data;
+		});
+	}();
+}

@@ -30,7 +30,7 @@ public class ConfrontoController {
 	public void novo() {
 	}
 
-	@Post("confronto/salva")
+	@Post("confrontos/salva")
 	@Consumes("application/json")
 	public void salva(Confronto confronto) {
 		validator.validate(confronto);
@@ -40,15 +40,19 @@ public class ConfrontoController {
 		result.nothing();
 	}
 
-	@Delete("confronto/remove/{id}")
+	@Delete("confrontos/remove/{id}")
 	public void remove(int id) {
 		confrontoDAO.remove(id);
 		result.nothing();
 	}
 
-	@Get("/confronto/{id}")
+	@Get("/confrontos/{id}")
 	public void confronto(Long id) {
-		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaPoId(id)).serialize();
+		result.use(Results.json())
+				.withoutRoot()
+				.from(confrontoDAO.buscaPoId(id))
+				.include("lutador1", "lutador2")
+				.serialize();
 	}
 
 	@Get("/confrontos/abertos")

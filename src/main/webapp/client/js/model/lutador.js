@@ -5,7 +5,6 @@ function lutadorFormController($scope, $window, $http, $routeParams) {
 		$http.get(url).success(function(data) {
 			$scope.lutador = data;
 		});
-
 	}();
 
 	$scope.salvaPaciente = function() {
