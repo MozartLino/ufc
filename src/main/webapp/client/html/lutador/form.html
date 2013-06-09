@@ -1,0 +1,114 @@
+<section id="content">
+	<div class="main">
+		<div class="breadcrumb" style="margin: 0 0 0 15px">
+			<a href="#">Home</a> / <a href="#">Cadastrar</a> / <strong>Lutadores</strong>
+		</div>
+		<div class="container_24 relative">
+
+			<article class="grid_14 a2">
+				<div class="inner">
+					<h3 class="hp-1">Cadastro de Lutadores</h3>
+					<div class="hr"></div>
+
+					<form id="contact-form" enctype="multipart/form-data" method="POST">
+						<input type="hidden" value=${lutador.id} ng-model="lutador.id">
+						<fieldset>
+							<p>
+								<label> Nome:<br /> <input type="text"
+									id="nome" name="lutador.nome" ng-model="lutador.nome"
+									value="${lutador.nome}">
+								</label>
+							</p>
+								
+							<p>
+								<label> Peso:<br /> <input type="text"
+									name="lutador.peso" id="peso" ng-model="lutador.peso"
+									value="${lutador.peso}">
+								</label>
+							</p>
+							<p>
+								<label> Envergadura:<br /> <input type="text"
+									name="lutador.envergadura" id="envergadura" ng-model="lutador.envergadura"
+									value="${lutador.envergadura}">
+								</label>
+							</p>
+							<p>
+								<label> Cinturao:<br /> <input type="text"
+									name="lutador.cinturao" id="cinturao" ng-model="lutador.cinturao"
+									value="${lutador.cinturao}">
+								</label>
+							</p>
+							<p>
+								<label> Data de Nascimento:<br /> <input type="text"
+									name="lutador.dataNascimento" id="dataNascimento" ng-model="lutador.dataNascimento"
+									value="${lutador.dataNascimento}">
+								</label>
+							</p>
+							<p>
+								<label> Lugar:<br /> <input type="text"
+									name="lutador.lugar" id="lugar" ng-model="lutador.lugar"
+									value="${lutador.lugar}">
+								</label>
+							</p>
+							<p>
+								<label> Sumario:<br /> <input type="text"
+									name="lutador.sumario" id="lugar" ng-model="lutador.sumario"
+									value="${lutador.sumario}">
+								</label>
+							</p>
+							
+							
+							<p style="color: red; display: none;" id="retorno-form">Por
+								Favor, Informe os dados corretamente.</p>
+							<div class="clear"></div>
+							<br />
+							<div class="clear"></div>
+							<div class="btns">
+								<a class="link-2" id="submit" ng-click="salvaLutador()">salvar</a>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</article>
+
+
+			<article class="grid_7 a2">
+				<div class="inner">
+					<h3 class="hp-1">NotÃ­cias</h3>
+					<div class="hr"></div>
+					<div class="row-1">
+						<p class="p1 p2">
+							<strong>Bradley Grosh</strong>
+						</p>
+						<p class="p1">
+							Mauris accumsa nulla vel diam sed in lacus ut enim adipiscing
+							aliquet. Nulla venenatis in pede mi <a href="more.html"
+								class="link-3"></a>
+						</p>
+					</div>
+					<div class="row-2">
+						<p class="p1 p2">
+							<strong>Patrick Pool</strong>
+						</p>
+						<p class="p1">
+							Mauris accumsa nulla vel diam sed in lacus ut enim adipiscing
+							aliquet. Nulla venenatis in pede mi <a href="more.html"
+								class="link-3"></a>
+						</p>
+					</div>
+					<div class="row-2">
+						<p class="p1 p2">
+							<strong>John Franklin</strong>
+						</p>
+						<p class="p1">
+							Mauris accumsa nulla vel diam sed in lacus ut enim adipiscing
+							aliquet. Nulla venenatis in pede mi <a href="more.html"
+								class="link-3"></a>
+						</p>
+					</div>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</div>
+	</div>
+</section>

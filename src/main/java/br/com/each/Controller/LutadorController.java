@@ -21,38 +21,38 @@ public class LutadorController {
 	private LutadorDAO lutadorDAO;
 	private Validator validator;
 
-	public LutadorController(Result result, LutadorDAO lutadorDAO, Validator validator) {
+	public LutadorController(Result result, LutadorDAO lutadorDAO,
+			Validator validator) {
 		this.result = result;
 		this.lutadorDAO = lutadorDAO;
 		this.validator = validator;
 	}
 
-	@Get("/lutador/novo")
-	public void novo() {
-	}
-
-	@Post("lutador/salva")
+	@Post("/lutadores")
 	@Consumes("application/json")
 	public void salva(Lutador lutador) {
+		validator.validate(lutador);
+		validator.onErrorSendBadRequest();
 		lutadorDAO.salva(lutador);
-		validator.onErrorUsePageOf(LutadorController.class).novo();
 		result.use(Results.status()).ok();
 	}
 
-	@Get("lutador/altera/{id}")
+	@Get("/lutadores/{id}")
 	public void edita(int id) {
-		result.use(Results.json()).withoutRoot().from(lutadorDAO.buscaPoId(id)).serialize();
+		result.use(Results.json()).withoutRoot().from(lutadorDAO.buscaPoId(id))
+				.serialize();
 	}
 
-	@Put("lutador/altera")
+	@Put("/lutadores")
 	@Consumes("application/json")
 	public void atualiza(Lutador lutador) {
+		validator.validate(lutador);
+		validator.onErrorSendBadRequest();
 		lutadorDAO.altera(lutador);
-		validator.onErrorUsePageOf(LutadorController.class).novo();
 		result.use(Results.status()).ok();
 	}
 
-	@Delete("lutador/remove/{lutador.id}")
+	@Delete("/lutadores/{lutador.id}")
 	public void remove(Lutador lutador) {
 		lutadorDAO.remove(lutador.getId());
 		result.nothing();

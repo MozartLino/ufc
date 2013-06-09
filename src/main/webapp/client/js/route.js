@@ -25,6 +25,29 @@ angular.module('ufc', []).config(function($routeProvider) {
 		templateUrl : 'client/html/confronto/confronto.html'
 	})
 
+	//categoria
+
+	.when('/categoria/novo', {
+		controller : categoriaFormController,
+		templateUrl : 'client/html/categoria/form.html'
+	})
+	.when('/categoria/edita/:categoriaId', {
+		controller : categoriaFormController,
+		templateUrl : 'client/html/categoria/form.html'
+	})
+	
+	//lutador
+
+	.when('/lutador/novo', {
+		controller : lutadorFormController,
+		templateUrl : 'client/html/lutador/form.html'
+	})
+	.when('/lutador/edita/:lutadorId', {
+		controller : lutadorFormController,
+		templateUrl : 'client/html/lutador/form.html'
+	})
+
+
 	.otherwise({
 		redirectTo : '/'
 	});

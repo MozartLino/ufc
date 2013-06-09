@@ -22,21 +22,21 @@ public class CategoriaController {
 		this.categoriaDAO = categoriaDAO;
 	}
 
-	@Post("categoria/salva")
+	@Post("categorias")
 	@Consumes("application/json")
 	public void salva(Categoria categoria) {
 		categoriaDAO.salva(categoria);
 		result.nothing();
 	}
 
-	@Put("categoria/altera")
+	@Put("categorias")
 	@Consumes("application/json")
 	public void atualiza(Categoria categoria) {
 		categoriaDAO.altera(categoria);
 		result.redirectTo(CategoriaController.class).lista();
 	}
 
-	@Get("categoria/altera/{id}")
+	@Get("categorias/{id}")
 	public void formulario(Long id) {
 		result.use(Results.json()).withoutRoot().from(categoriaDAO.buscaPoId(id)).serialize();
 	}

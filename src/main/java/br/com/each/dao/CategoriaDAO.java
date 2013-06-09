@@ -112,8 +112,8 @@ public class CategoriaDAO {
 	}
 
 	private Categoria createCategoria(ResultSet set) throws SQLException {
-		Categoria categoria = new Categoria(set.getString("descricao"), set.getInt("peso_minimo"), set.getInt("peso_minimo"));
-		categoria.setId(set.getLong("cod_comentario"));
+		Categoria categoria = new Categoria(set.getString("descricao"), set.getInt("peso_minimo"), set.getInt("peso_maximo"));
+		categoria.setId(set.getLong("cod_categoria"));
 		return categoria;
 	}
 }

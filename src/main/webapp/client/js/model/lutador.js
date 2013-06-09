@@ -1,13 +1,19 @@
 function lutadorFormController($scope, $window, $http, $routeParams) {
 
 	init = function() {
-		var url = "lutadores/" + $routeParams.lutadorId;
-		$http.get(url).success(function(data) {
-			$scope.lutador = data;
-		});
+
+		var lutadorId = $routeParams.lutadorId;
+
+		if (lutadorId != undefined) {
+			var url = "lutadores/" + lutadorId;
+
+			$http.get(url).success(function(data) {
+				$scope.lutador = data;
+			});
+		}
 	}();
 
-	$scope.salvaPaciente = function() {
+	$scope.salvaLutador = function() {
 		var url = "lutadores";
 
 		$http({
@@ -17,8 +23,7 @@ function lutadorFormController($scope, $window, $http, $routeParams) {
 				"lutador" : $scope.lutador
 			}
 		}).success(function(data) {
-			$scope.lutadores = data;
-			$window.window.location.href = "/#perfil";
+			console.log("Sucesso");
 		});
 	};
 
@@ -26,3 +31,5 @@ function lutadorFormController($scope, $window, $http, $routeParams) {
 		return value == null ? "post" : "put";
 	}
 }
+
+
