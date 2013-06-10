@@ -33,7 +33,7 @@ public class PayloadUFCBD {
 			pstm = this.connection.prepareStatement("CREATE TABLE tb_tipoVitoria ( "
 					+ " cod_vitoria 	INT AUTO_INCREMENT, " + " descricao 	TEXT NOT NULL, "
 					+ " pontuacao 	INT NOT NULL, " + " PRIMARY KEY(cod_vitoria));");
-			pstm.execute();
+			pstm.execute(); 
 
 			// CREATE TABLE LUTADOR
 			pstm = this.connection.prepareStatement("CREATE TABLE tb_lutador ( "
@@ -67,13 +67,25 @@ public class PayloadUFCBD {
 					+ " PRIMARY KEY (cod_categoria));");
 			pstm.execute();
 
+			// CREATE TABLE EVENTO
+			pstm = this.connection.prepareStatement("CREATE TABLE tb_evento ( "
+					+ " cod_evento        	INT AUTO_INCREMENT," 
+					+ " descricao           TEXT NOT NULL,"
+					+ " status				TEXT NOT NULL,"
+					+ " PRIMARY KEY (cod_evento));");
+			pstm.execute();
+			
 			// CREATE TABLE CONFRONTO
 			pstm = this.connection.prepareStatement("CREATE TABLE tb_confronto ("
-					+ " cod_confronto        INT AUTO_INCREMENT," + " evento               VARCHAR(20) NOT NULL,"
-					+ " data                 DATE NOT NULL," + " estado				 TEXT NOT NULL,"
-					+ " cod_lutador1         INT NOT NULL," + " cod_lutador2         INT NOT NULL,"
-					+ " cod_vencedor         INT," + " cod_categoria        INT NOT NULL,"
-					+ " cod_vitoria          INT," + " PRIMARY KEY (cod_confronto),"
+					+ " cod_confronto        INT AUTO_INCREMENT," 
+					+ " cod_evento           INT NOT NULL,"
+					+ " data                 DATE NOT NULL," 
+					+ " cod_lutador1         INT NOT NULL," 
+					+ " cod_lutador2         INT NOT NULL,"
+					+ " cod_vencedor         INT," 
+					+ " cod_categoria        INT NOT NULL,"
+					+ " cod_vitoria          INT," 
+					+ " PRIMARY KEY (cod_confronto),"
 					+ " FOREIGN KEY (cod_lutador1) REFERENCES tb_lutador (cod_lutador),"
 					+ " FOREIGN KEY (cod_lutador2) REFERENCES tb_lutador (cod_lutador),"
 					+ " FOREIGN KEY (cod_vencedor) REFERENCES tb_lutador (cod_lutador),"
@@ -138,19 +150,27 @@ public class PayloadUFCBD {
 			pstm.execute();
 
 			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (evento, data, cod_lutador1, cod_lutador2, cod_categoria, estado) values('UFC RIO 152', '2012/12/12', 1, 2, 1, 'ABERTO');");
+					.prepareStatement("INSERT INTO tb_evento (descricao, status) values('UFC 152', 'ABERTO');");
+			pstm.execute();
+			
+			pstm = this.connection
+					.prepareStatement("INSERT INTO tb_evento (descricao, status) values('UFC 151', 'FECHADO');");
 			pstm.execute();
 
 			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria, estado) values('UFC RIO 152', '2012/12/10', 3, 4, 1, 3, 1, 'FINALIZADO');");
+					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria) values(1 , '2012/12/12', 1, 2, 1);");
 			pstm.execute();
 
 			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria, estado) values('UFC RIO 152', '2012/12/05', 1, 3, 1, 1, 1, 'FINALIZADO');");
+					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria) values(2, '2012/12/10', 3, 4, 1, 3, 1);");
 			pstm.execute();
 
 			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria, estado)  values('UFC RIO 152', '2012/12/12', 2, 4, 1, 4, 1, 'FINALIZADO');");
+					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria) values(1, '2012/12/05', 1, 3, 1, 1, 1);");
+			pstm.execute();
+
+			pstm = this.connection
+					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria)  values(2 , '2012/12/12', 2, 4, 1, 4, 1);");
 			pstm.execute();
 
 			pstm = this.connection
