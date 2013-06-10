@@ -9,22 +9,20 @@ import br.com.each.model.TipoVitoria;
 public class Confronto {
 
 	private Long id;
-	private String evento;
+	private Evento evento;
 	private Date data;
 	private Lutador lutador1;
 	private Lutador lutador2;
 	private Lutador vencedor;
 	private Categoria categoria;
 	private TipoVitoria tipoVitoria;
-	private Status status;
 
-	public Confronto(String evento, Date data, Lutador lutador1, Lutador lutador2, Categoria categoria, Status status) {
+	public Confronto(Evento evento, Date data, Lutador lutador1, Lutador lutador2, Categoria categoria) {
 		this.evento = evento;
 		this.data = data;
 		this.lutador1 = lutador1;
 		this.lutador2 = lutador2;
 		this.categoria = categoria;
-		this.status = status;
 	}
 
 	public Lutador getVencedor() {
@@ -51,7 +49,7 @@ public class Confronto {
 		this.id = id;
 	}
 
-	public String getEvento() {
+	public Evento getEvento() {
 		return evento;
 	}
 
@@ -69,10 +67,6 @@ public class Confronto {
 
 	public Categoria getCategoria() {
 		return categoria;
-	}
-
-	public Status getStatus() {
-		return status;
 	}
 
 	@Override
@@ -102,7 +96,7 @@ public class Confronto {
 
 	@Override
 	public String toString() {
-		return "Confronto [id=" + id + ", evento=" + evento + ", data=" + data + ", lutador1=" + lutador1 + ", lutador2=" + lutador2 + ", vencedor=" + vencedor + ", categoria=" + categoria + ", tipoVitoria=" + tipoVitoria + ", status=" + status + "]";
+		return "Confronto [id=" + id + ", evento=" + evento + ", data=" + data + ", lutador1=" + lutador1 + ", lutador2=" + lutador2 + ", vencedor=" + vencedor + ", categoria=" + categoria + ", tipoVitoria=" + tipoVitoria + "]";
 	}
 
 }
