@@ -20,13 +20,13 @@ public class PayloadUFCBD {
 	public void populaBanco() {
 		try {
 
-			pstm = this.connection.prepareStatement("drop database makeyourbet;");
+			pstm = this.connection.prepareStatement("drop database banco_ufc;");
 			pstm.execute();
 
-			pstm = this.connection.prepareStatement("create database makeyourbet;");
+			pstm = this.connection.prepareStatement("create database banco_ufc;");
 			pstm.execute();
 
-			pstm = this.connection.prepareStatement("use makeyourbet;");
+			pstm = this.connection.prepareStatement("use banco_ufc;");
 			pstm.execute();
 
 			// CREATE TABLE TIPO VITORIA
