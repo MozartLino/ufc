@@ -40,6 +40,11 @@ public class EventoController {
 		result.use(Results.json()).withoutRoot().from(eventoDAO.listaAbertos()).serialize();
 	}
 
+	@Get("eventos/fechados")
+	public void fechados() {
+		result.use(Results.json()).withoutRoot().from(eventoDAO.listaFechados()).serialize();
+	}
+
 	@Get("eventos/finalizados")
 	public void finalizados() {
 		result.use(Results.json()).withoutRoot().from(eventoDAO.listaFinalizados()).serialize();
