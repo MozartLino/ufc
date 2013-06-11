@@ -63,7 +63,7 @@ public class EventoDAO {
 		}
 	}
 
-	public List<Evento> listaAbertos(Long id) {
+	public List<Evento> listaAbertos() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -83,7 +83,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaFinalizados(Long id) {
+	public List<Evento> listaFinalizados() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -103,7 +103,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaFechados(Long id) {
+	public List<Evento> listaFechados() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -123,7 +123,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaTodos(Long id) {
+	public List<Evento> listaTodos() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
