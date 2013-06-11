@@ -34,10 +34,17 @@ public class EventoController {
 		result.nothing();
 	}
 
-	@Get("/eventos/abertos")
+	@Get("eventos/abertos")
 	@Consumes("application/json")
 	public void abertos() {
 		eventoDAO.listaAbertos();
+		result.nothing();
+	}
+
+	@Get("eventos/finalizados")
+	@Consumes("application/json")
+	public void finalizados() {
+		eventoDAO.listaFinalizados();
 		result.nothing();
 	}
 

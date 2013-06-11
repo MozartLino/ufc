@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
 import br.com.each.model.confronto.Evento;
 import br.com.each.model.confronto.Status;
 
+@Component
 public class EventoDAO {
 
 	private Connection connection;
