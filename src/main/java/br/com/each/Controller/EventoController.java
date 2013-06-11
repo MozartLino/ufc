@@ -3,6 +3,7 @@ package br.com.each.Controller;
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.each.dao.EventoDAO;
@@ -30,6 +31,21 @@ public class EventoController {
 	@Consumes("application/json")
 	public void altera(Evento evento) {
 		eventoDAO.altera(evento);
+		result.nothing();
+	}
+	
+	@Get("eventos/abertos")
+	@Consumes("application/json")
+	public void abertos() {
+		eventoDAO.listaAbertos();
+		result.nothing();
+	}
+	
+		
+	@Get("eventos/finalizados")
+	@Consumes("application/json")
+	public void finalizados() {
+		eventoDAO.listaFinalizados();
 		result.nothing();
 	}
 
