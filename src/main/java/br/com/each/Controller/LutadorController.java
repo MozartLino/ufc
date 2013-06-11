@@ -1,7 +1,5 @@
 package br.com.each.Controller;
 
-import java.util.List;
-
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
@@ -59,8 +57,9 @@ public class LutadorController {
 	}
 
 	@Get("/lutadores")
-	public List<Lutador> lista() {
-		return lutadorDAO.lista();
+	public void lista() {
+		result.use(Results.json()).withoutRoot().from(lutadorDAO.lista())
+				.serialize();
 	}
 
 }

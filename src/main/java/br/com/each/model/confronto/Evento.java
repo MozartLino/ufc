@@ -8,6 +8,9 @@ public class Evento {
 
 	private Status status;
 
+	public Evento() {
+	}
+
 	public Evento(String descricao, Status status) {
 		this.descricao = descricao;
 		this.status = status;
