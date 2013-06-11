@@ -107,7 +107,7 @@ public class ConfrontoDAO {
 		return confrontos;
 	}
 
-	public List<Confronto> buscaPorEvento(Evento evento) {
+	public List<Confronto> buscaConfrontoPor(Evento evento) {
 		List<Confronto> confrontos = new ArrayList<Confronto>();
 		try {
 			this.connection = ConnectionFactory.getConnection();

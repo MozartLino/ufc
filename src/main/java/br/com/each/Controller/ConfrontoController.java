@@ -61,7 +61,7 @@ public class ConfrontoController {
 
 	@Get("/confrontos/eventos/{evento.id}")
 	public void confrontos(Evento evento) {
-		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaPorEvento(evento)).include("lutador1", "lutador2").serialize();
+		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaConfrontoPor(evento)).include("lutador1", "lutador2").serialize();
 	}
 
 }

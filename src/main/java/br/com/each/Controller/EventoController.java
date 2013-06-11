@@ -1,6 +1,7 @@
 package br.com.each.Controller;
 
 import br.com.caelum.vraptor.Consumes;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
@@ -19,17 +20,24 @@ public class EventoController {
 		this.eventoDAO = eventoDAO;
 	}
 
-	@Post("eventos")
+	@Post("/eventos")
 	@Consumes("application/json")
 	public void salva(Evento evento) {
 		eventoDAO.salva(evento);
 		result.nothing();
 	}
 
-	@Put("eventos")
+	@Put("/eventos")
 	@Consumes("application/json")
 	public void altera(Evento evento) {
 		eventoDAO.altera(evento);
+		result.nothing();
+	}
+
+	@Get("/eventos/abertos")
+	@Consumes("application/json")
+	public void abertos() {
+		eventoDAO.listaAbertos();
 		result.nothing();
 	}
 
