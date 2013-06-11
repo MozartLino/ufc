@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 import br.com.each.dao.EventoDAO;
 import br.com.each.model.confronto.Evento;
 
@@ -35,17 +36,13 @@ public class EventoController {
 	}
 
 	@Get("eventos/abertos")
-	@Consumes("application/json")
 	public void abertos() {
-		eventoDAO.listaAbertos();
-		result.nothing();
+		result.use(Results.json()).withoutRoot().from(eventoDAO.listaAbertos()).serialize();
 	}
 
 	@Get("eventos/finalizados")
-	@Consumes("application/json")
 	public void finalizados() {
-		eventoDAO.listaFinalizados();
-		result.nothing();
+		result.use(Results.json()).withoutRoot().from(eventoDAO.listaFinalizados()).serialize();
 	}
 
 }
