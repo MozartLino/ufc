@@ -51,3 +51,15 @@ function usuarioPerfilController($scope, $window, $http) {
 	}();
 
 }
+
+
+function usuarioLoginController($scope, $window, $http) {
+
+	$scope.logar = function() {
+		console.log("caiu");
+		$http.post('logar', {"usuario" : $scope.usuario}).success(function(data) {
+			window.location = "http://localhost:8080/ufc/#/perfil"; 
+		});
+	};
+
+}

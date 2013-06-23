@@ -64,13 +64,15 @@ public class UsuarioController {
 
 	// @Post("/usuarios/foto")
 	// public void salva(UploadedFile filename) {
-	// fileManager.upload(filename, "usuarios" + File.separator + session.getUsuario().getId());
+	// fileManager.upload(filename, "usuarios" + File.separator +
+	// session.getUsuario().getId());
 	// result.nothing();
 	// }
 	//
 	// @Get("/usuarios/foto")
 	// public File foto() {
-	// return fileManager.download("usuarios" + File.separator + session.getUsuario().getId());
+	// return fileManager.download("usuarios" + File.separator +
+	// session.getUsuario().getId());
 	// }
 
 	@Public
@@ -80,7 +82,7 @@ public class UsuarioController {
 
 		loga(usuario);
 
-		result.redirectTo(UsuarioController.class).perfil();
+		result.nothing();
 	}
 
 	@Get("/deslogar")

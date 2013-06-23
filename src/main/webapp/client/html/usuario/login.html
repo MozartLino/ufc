@@ -1,47 +1,45 @@
-﻿    <section id="content">
+
+<section id="content" ng-controller="usuarioLoginController">
 	<div class="main">
-        <div class="breadcrumb" style="margin: 0 0 10px 0">
-        <a href="#">Home</a> / <strong>Login</strong>
-    </div>
-    	<div class="container_24 relative">
-        	<article class="a2" style="width:480px;margin-left:200px;">
-            	<div class="inner">
-                	<h3 class="hp-1">Login</h3>
-                    <div class="hr"></div>
-                    <form id="contact-form">
-                      <!--<div class="success" style="display: none; "> Contact form submitted! <strong>We will be in touch soon.</strong>
+		<div class="breadcrumb" style="margin: 0 0 10px 0">
+			<a href="#">Home</a> / <strong>Login</strong>
+		</div>
+		<div class="container_24 relative">
+			<article class="a2" style="width: 480px; margin-left: 200px;">
+				<div class="inner">
+					<h3 class="hp-1">Login</h3>
+					<div class="hr"></div>
+					<form id="contact-form">
+						<!--<div class="success" style="display: none; "> Contact form submitted! <strong>We will be in touch soon.</strong>
                       </div>-->
-                      <fieldset>
-                          <p>
-                              <label class="login">Login:<br />
-                                <input type="text" value="" />
-                                <!--<span class="errors">
-                                    <span class="error" style="display: none; ">*This is not a valid name.</span>
-                                    <span class="empty" style="display: none; ">*This field is required.</span>
-                                </span>-->
-                              </label>
-                          </p>
-                          <p>
-                              <label class="senha">
-                                Senha:<br />
-                                <input type="text" value="" />
-                                <!--<span class="errors"><span class="error" style="display: none; ">*This is not a valid email address.</span> <span class="empty" style="display: none; ">*This field is required.</span></span>-->
-                              </label>
-                          </p>
-                          <!--<label class="message">
+						<fieldset>
+							<p>
+								<label class="login">Login:<br /> <input type="text"
+									value="" ng-model="usuario.login" /> <span class="errors">
+										<span class="error" style="display: none;">*This is not
+											a valid name.</span> <span class="empty" style="display: none;">*This
+											field is required.</span>
+								</span>
+								</label>
+							</p>
+							<p>
+								<label class="senha"> Senha:<br /> <input type="text"
+									ng-model="usuario.senha" value="" /> <!--<span class="errors"><span class="error" style="display: none; ">*This is not a valid email address.</span> <span class="empty" style="display: none; ">*This field is required.</span></span>-->
+								</label>
+							</p>
+							<!--<label class="message">
                             <textarea>Message:</textarea>
                             <span class="error" style="display: none; ">*The message is too short.</span> <span class="empty" style="display: none; ">*This field is required.</span> 
                           </label>-->
-                          <div class="clear"></div>
-                          <div class="btns">
-                          <a class="link-2" data-type="submit">logar</a>
-                          <!--<a class="link-2" data-type="reset">Clear</a>-->
-                          </div>
-                      </fieldset>
-                    </form>
-                </div>
-            </article>
-            <div class="clear"></div>
+							<div class="clear"></div>
+							<br /> <br /> <input type="button" class="link-2"
+								style="margin-left: 14px; background: black" ng-click="logar()" value="logar" />
+							<!--<a class="link-2" data-type="reset">Clear</a>-->
+						</fieldset>
+					</form>
+				</div>
+			</article>
+			<div class="clear"></div>
 		</div>
-    </div>
+	</div>
 </section>
