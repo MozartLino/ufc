@@ -82,7 +82,7 @@ public class UsuarioController {
 
 		loga(usuario);
 
-		result.nothing();
+		result.use(Results.json()).withoutRoot().from(usuario).serialize();
 	}
 
 	@Get("/deslogar")
