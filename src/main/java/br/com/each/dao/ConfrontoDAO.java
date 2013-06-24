@@ -107,11 +107,12 @@ public class ConfrontoDAO {
 		return confrontos;
 	}
 
-	public List<Confronto> buscaPorEvento(Evento evento) {
+	public List<Confronto> buscaConfrontoPor(Evento evento) {
 		List<Confronto> confrontos = new ArrayList<Confronto>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			pstm = this.connection.prepareStatement(query() + " WHERE cod_evento = ? ORDER BY c.data desc;");
+			pstm = this.connection.prepareStatement(query() + " WHERE c.cod_evento = ? ORDER BY c.data desc;");
+			System.out.println(query() + " WHERE c.cod_evento = ? ORDER BY c.data desc;");
 			pstm.setLong(1, evento.getId());
 
 			ResultSet set = pstm.executeQuery();
@@ -133,7 +134,7 @@ public class ConfrontoDAO {
 		Confronto confronto = null;
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			String sql = query() + " WHERE cod_confronto = ? ORDER BY c.data desc;";
+			String sql = query() + "WHERE c.cod_confronto = ? ORDER BY c.data desc;";
 			pstm = this.connection.prepareStatement(sql);
 			pstm.setLong(1, id);
 			ResultSet set = pstm.executeQuery();
@@ -153,16 +154,23 @@ public class ConfrontoDAO {
 
 	private Confronto getConfronto(ResultSet set) throws SQLException {
 
-		Lutador lutador1 = new Lutador(set.getString("nome1"), set.getInt("peso1"), set.getInt("envergadura1"), set.getInt("altura1"), set.getInt("cinturao1"), set.getDate("data_nascimento1"), set.getString("lugar1"), set.getString("sumario1"));
+		Lutador lutador1 = new Lutador(set.getString("nome1"), set.getInt("peso1"), set.getInt("envergadura1"),
+				set.getInt("altura1"), set.getInt("cinturao1"), set.getDate("data_nascimento1"),
+				set.getString("lugar1"), set.getString("sumario1"));
 		lutador1.setId(set.getLong("cod_lutador1"));
 
-		Lutador lutador2 = new Lutador(set.getString("nome2"), set.getInt("peso2"), set.getInt("envergadura2"), set.getInt("altura2"), set.getInt("cinturao2"), set.getDate("data_nascimento2"), set.getString("lugar2"), set.getString("sumario2"));
+		Lutador lutador2 = new Lutador(set.getString("nome2"), set.getInt("peso2"), set.getInt("envergadura2"),
+				set.getInt("altura2"), set.getInt("cinturao2"), set.getDate("data_nascimento2"),
+				set.getString("lugar2"), set.getString("sumario2"));
 		lutador2.setId(set.getLong("cod_lutador2"));
 
-		Lutador vencedor = new Lutador(set.getString("nome_venc"), set.getInt("peso_venc"), set.getInt("envergadura_venc"), set.getInt("altura_venc"), set.getInt("cinturao_venc"), set.getDate("data_nascimento_venc"), set.getString("lugar_venc"), set.getString("sumario_venc"));
+		Lutador vencedor = new Lutador(set.getString("nome_venc"), set.getInt("peso_venc"),
+				set.getInt("envergadura_venc"), set.getInt("altura_venc"), set.getInt("cinturao_venc"),
+				set.getDate("data_nascimento_venc"), set.getString("lugar_venc"), set.getString("sumario_venc"));
 		vencedor.setId(set.getLong("cod_lutador_venc"));
 
-		Categoria categoria = new Categoria(set.getString("descricao"), set.getInt("peso_maximo"), set.getInt("peso_minimo"));
+		Categoria categoria = new Categoria(set.getString("descricao"), set.getInt("peso_maximo"),
+				set.getInt("peso_minimo"));
 		categoria.setId(set.getLong("cod_categoria"));
 
 		Evento evento = new Evento(set.getString("evento_descricao"), Status.valueOf(set.getString("status")));
@@ -176,6 +184,6 @@ public class ConfrontoDAO {
 	}
 
 	private String query() {
-		return "SELECT c.cod_confronto, " + " c.evento, " + " c.data, " + " c.estado, " + " l1.cod_lutador as cod_lutador1, " + " l1.nome as nome1, " + " l1.peso as peso1, " + " l1.envergadura as envergadura1, " + " l1.altura as altura1, " + " l1.cinturao as cinturao1, " + " l1.data_nascimento as data_nascimento1, " + " l1.lugar as lugar1, " + " l1.sumario as sumario1, " + " l2.cod_lutador as cod_lutador2, " + " l2.nome as nome2, " + " l2.peso as peso2, " + " l2.envergadura as envergadura2, " + " l2.altura as altura2, " + " l2.cinturao as cinturao2, " + " l2.data_nascimento as data_nascimento2, " + " l2.lugar as lugar2, " + " l2.sumario as sumario2, " + " v.cod_lutador as cod_lutador_venc, " + " v.nome as nome_venc, " + " v.peso as peso_venc, " + " v.envergadura as envergadura_venc, " + " v.altura as altura_venc, " + " v.cinturao as cinturao_venc, " + " v.data_nascimento as data_nascimento_venc, " + " v.lugar as lugar_venc, " + " v.sumario as sumario_venc, " + " ca.cod_categoria, " + " ca.descricao, " + " ca.peso_maximo, " + " ca.peso_minimo " + " FROM tb_confronto c " + " LEFT JOIN tb_lutador v ON c.cod_vencedor = v.cod_lutador " + " INNER JOIN tb_lutador l1 ON c.cod_lutador1 = l1.cod_lutador " + " INNER JOIN tb_lutador l2 ON c.cod_lutador2 = l2.cod_lutador " + " INNER JOIN tb_categoria ca ON c.cod_categoria = ca.cod_categoria ";
+		return "SELECT c.cod_confronto, c.data, l1.cod_lutador as cod_lutador1,  l1.nome as nome1, l1.peso as peso1, l1.envergadura as envergadura1, l1.altura as altura1, l1.cinturao as cinturao1, l1.data_nascimento as data_nascimento1, l1.lugar as lugar1, l1.sumario as sumario1, l2.cod_lutador as cod_lutador2, l2.nome as nome2, l2.peso as peso2, l2.envergadura as envergadura2, l2.altura as altura2, l2.cinturao as cinturao2, l2.data_nascimento as data_nascimento2, l2.lugar as lugar2, l2.sumario as sumario2, v.cod_lutador as cod_lutador_venc, v.nome as nome_venc, v.peso as peso_venc, v.envergadura as envergadura_venc, v.altura as altura_venc, v.cinturao as cinturao_venc, v.data_nascimento as data_nascimento_venc, v.lugar as lugar_venc, v.sumario as sumario_venc, ca.cod_categoria, ca.descricao, ca.peso_maximo, ca.peso_minimo, e.cod_evento, e.descricao as evento_descricao, e.status FROM tb_confronto c LEFT JOIN tb_lutador v ON c.cod_vencedor = v.cod_lutador INNER JOIN tb_lutador l1 ON c.cod_lutador1 = l1.cod_lutador INNER JOIN tb_lutador l2 ON c.cod_lutador2 = l2.cod_lutador INNER JOIN tb_categoria ca ON c.cod_categoria = ca.cod_categoria INNER JOIN tb_evento e ON c.cod_evento = e.cod_evento";
 	}
 }

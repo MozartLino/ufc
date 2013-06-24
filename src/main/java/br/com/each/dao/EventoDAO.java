@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
 import br.com.each.model.confronto.Evento;
 import br.com.each.model.confronto.Status;
 
+@Component
 public class EventoDAO {
 
 	private Connection connection;
@@ -63,7 +65,7 @@ public class EventoDAO {
 		}
 	}
 
-	public List<Evento> listaAbertos(Long id) {
+	public List<Evento> listaAbertos() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -83,7 +85,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaFinalizados(Long id) {
+	public List<Evento> listaFinalizados() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -103,7 +105,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaFechados(Long id) {
+	public List<Evento> listaFechados() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();
@@ -123,7 +125,7 @@ public class EventoDAO {
 		return eventos;
 	}
 
-	public List<Evento> listaTodos(Long id) {
+	public List<Evento> listaTodos() {
 		List<Evento> eventos = new ArrayList<>();
 		try {
 			this.connection = ConnectionFactory.getConnection();

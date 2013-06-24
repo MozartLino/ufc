@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 
 	private static String DRIVER = "com.mysql.jdbc.Driver";
-	private static String URL = "jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com/makeyourbet";
-  	private static String USER = "ricardolino";
-  	private static String PASSWD = "xxx";
+	private static String URL = "jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com/banco_ufc";
+	private static String USER = "makeyourbet";
+	private static String PASSWD = "xxx";
 
 	public static Connection getConnection() throws SQLException {
 		try {

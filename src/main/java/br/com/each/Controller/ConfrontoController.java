@@ -56,12 +56,15 @@ public class ConfrontoController {
 
 	@Get("/confrontos/{id}")
 	public void confronto(Long id) {
-		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaPoId(id)).include("lutador1", "lutador2").serialize();
+		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaPoId(id))
+				.include("lutador1", "lutador2", "evento")
+				.serialize();
 	}
 
 	@Get("/confrontos/eventos/{evento.id}")
 	public void confrontos(Evento evento) {
-		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaPorEvento(evento)).include("lutador1", "lutador2").serialize();
+		result.use(Results.json()).withoutRoot().from(confrontoDAO.buscaConfrontoPor(evento))
+				.include("lutador1", "lutador2", "vencedor", "evento").serialize();
 	}
 
 }
