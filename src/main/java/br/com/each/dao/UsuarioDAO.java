@@ -134,21 +134,23 @@ public class UsuarioDAO {
 			pstm.execute();
 
 			ResultSet set = pstm.executeQuery();
-			Usuario usuario2 = new Usuario();
+			Usuario target = null;
 			while (set.next()) {
-				usuario2.setId(set.getLong("cod_usuario"));
-				usuario2.setLogin(set.getString("login"));
-				usuario2.setEmail(set.getString("email"));
-				usuario2.setNome(set.getString("nome"));
-				usuario2.setCpf(set.getString("cpf"));
-				usuario2.setSenha(set.getString("senha"));
-				usuario2.setPerfil(set.getInt("perfil"));
+				target = new Usuario();
+				target.setId(set.getLong("cod_usuario"));
+				target.setLogin(set.getString("login"));
+				target.setEmail(set.getString("email"));
+				target.setNome(set.getString("nome"));
+				target.setCpf(set.getString("cpf"));
+				target.setSenha(set.getString("senha"));
+				target.setPerfil(set.getInt("perfil"));
 			}
 
 			pstm.close();
 			connection.close();
-			if (usuario.getLogin().equals(usuario2.getLogin()) && usuario.getSenha().equals(usuario2.getSenha())) {
-				return usuario2;
+			if (usuario.getLogin().equals(target.getLogin()) && usuario.getSenha().equals(target.getSenha())) {
+				target.setSenha(null);
+				return target;
 			}
 
 		} catch (SQLException e) {

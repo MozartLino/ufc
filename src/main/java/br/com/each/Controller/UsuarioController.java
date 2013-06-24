@@ -80,7 +80,7 @@ public class UsuarioController {
 	@Consumes("application/json")
 	public void logar(Usuario usuario) {
 
-		loga(usuario);
+		usuario = loga(usuario);
 
 		result.use(Results.json()).withoutRoot().from(usuario).serialize();
 	}
@@ -91,11 +91,13 @@ public class UsuarioController {
 		result.nothing();
 	}
 
-	private void loga(Usuario usuario) {
+	private Usuario loga(Usuario usuario) {
 		usuario = usuarioDAO.valida(usuario);
 
 		if (usuario != null) {
 			session.setUsuario(usuario);
 		}
+		
+		return usuario;
 	}
 }
