@@ -3,9 +3,7 @@ package br.com.each.model.confronto;
 public class Evento {
 
 	private Long id;
-
 	private String descricao;
-
 	private Status status;
 
 	public Evento() {
