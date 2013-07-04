@@ -1,6 +1,5 @@
 package br.com.each.model;
 
-import br.com.each.model.usuario.Usuario;
 
 public class Aposta {
 

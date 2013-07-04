@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	private static String DRIVER = "com.mysql.jdbc.Driver";
-	private static String URL = "jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com/banco_ufc";
-	private static String USER = "makeyourbet";
+	private static String DRIVER = "org.postgresql.Driver";
+	private static String URL = "jdbc:postgresql://localhost:5432/banco_ufc";
+	private static String USER = "postgres";
 	private static String PASSWD = "xxx";
 
 	public static Connection getConnection() throws SQLException {

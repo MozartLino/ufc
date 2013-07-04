@@ -1,4 +1,4 @@
-package br.com.each.model.confronto;
+package br.com.each.model;
 
 public class Evento {
 

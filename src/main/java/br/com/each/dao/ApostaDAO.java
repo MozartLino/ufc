@@ -10,7 +10,7 @@ import java.util.List;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
 import br.com.each.model.Aposta;
-import br.com.each.model.usuario.Usuario;
+import br.com.each.model.Usuario;
 
 @Component
 public class ApostaDAO {

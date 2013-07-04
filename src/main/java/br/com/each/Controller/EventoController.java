@@ -8,7 +8,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.dao.EventoDAO;
-import br.com.each.model.confronto.Evento;
+import br.com.each.model.Evento;
 
 @Resource
 public class EventoController {

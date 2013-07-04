@@ -8,7 +8,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.dao.ApostaDAO;
 import br.com.each.model.Aposta;
-import br.com.each.model.usuario.UserSession;
+import br.com.each.model.UserSession;
 
 @Resource
 public class ApostaController {

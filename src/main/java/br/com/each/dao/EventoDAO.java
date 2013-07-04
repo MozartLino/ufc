@@ -9,8 +9,8 @@ import java.util.List;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
-import br.com.each.model.confronto.Evento;
-import br.com.each.model.confronto.Status;
+import br.com.each.model.Evento;
+import br.com.each.model.Status;
 
 @Component
 public class EventoDAO {

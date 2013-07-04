@@ -1,4 +1,4 @@
-package br.com.each.model.usuario;
+package br.com.each.model;
 
 import java.io.Serializable;
 

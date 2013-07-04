@@ -1,10 +1,7 @@
-package br.com.each.model.confronto;
+package br.com.each.model;
 
 import java.sql.Date;
 
-import br.com.each.model.Categoria;
-import br.com.each.model.Lutador;
-import br.com.each.model.TipoVitoria;
 
 public class Confronto {
 

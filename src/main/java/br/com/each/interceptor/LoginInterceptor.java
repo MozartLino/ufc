@@ -5,7 +5,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.core.InterceptorStack;
 import br.com.caelum.vraptor.interceptor.Interceptor;
 import br.com.caelum.vraptor.resource.ResourceMethod;
-import br.com.each.model.usuario.UserSession;
+import br.com.each.model.UserSession;
 
 @Intercepts
 public class LoginInterceptor implements Interceptor {

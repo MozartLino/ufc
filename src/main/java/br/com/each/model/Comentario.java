@@ -2,7 +2,6 @@ package br.com.each.model;
 
 import java.sql.Date;
 
-import br.com.each.model.usuario.Usuario;
 
 public class Comentario {
 

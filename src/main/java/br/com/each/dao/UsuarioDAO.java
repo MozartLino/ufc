@@ -9,8 +9,9 @@ import java.util.List;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.each.ConnectionFactory.ConnectionFactory;
-import br.com.each.model.usuario.Usuario;
-import br.com.each.model.usuario.UsuarioRepresentation;
+import br.com.each.model.Perfil;
+import br.com.each.model.Usuario;
+import br.com.each.model.UsuarioRepresentation;
 
 @Component
 public class UsuarioDAO {
@@ -37,7 +38,7 @@ public class UsuarioDAO {
 			pstm.setString(3, usuario.getLogin());
 			pstm.setString(4, usuario.getSenha());
 			pstm.setString(5, usuario.getEmail());
-			pstm.setInt(6, usuario.getPerfil());
+			pstm.setString(6, usuario.getPerfil().toString());
 
 			pstm.executeUpdate();
 
@@ -58,7 +59,7 @@ public class UsuarioDAO {
 			pstm.setString(3, usuario.getLogin());
 			pstm.setString(4, usuario.getSenha());
 			pstm.setString(5, usuario.getEmail());
-			pstm.setInt(6, usuario.getPerfil());
+			pstm.setString(6, usuario.getPerfil().toString());
 			pstm.setLong(7, usuario.getId());
 
 			pstm.executeUpdate();
@@ -73,7 +74,8 @@ public class UsuarioDAO {
 	public void remove(Long id) {
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			pstm = this.connection.prepareStatement("delete from tb_usuario where cod_usuario = ?");
+			pstm = this.connection
+					.prepareStatement("delete from tb_usuario where cod_usuario = ?");
 			pstm.setLong(1, id);
 			pstm.executeUpdate();
 
@@ -129,26 +131,26 @@ public class UsuarioDAO {
 	public Usuario valida(Usuario usuario) {
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			pstm = this.connection.prepareStatement("select * from tb_usuario where login = ?");
+			pstm = this.connection
+					.prepareStatement("select * from tb_usuario where login = ?");
 			pstm.setString(1, usuario.getLogin());
 			pstm.execute();
 
 			ResultSet set = pstm.executeQuery();
 			Usuario target = null;
 			while (set.next()) {
-				target = new Usuario();
-				target.setId(set.getLong("cod_usuario"));
-				target.setLogin(set.getString("login"));
-				target.setEmail(set.getString("email"));
-				target.setNome(set.getString("nome"));
-				target.setCpf(set.getString("cpf"));
-				target.setSenha(set.getString("senha"));
-				target.setPerfil(set.getInt("perfil"));
+				target = new Usuario(set.getString("nome"),
+						set.getDate("dataNascimento"), set.getString("cpf"),
+						set.getString("email"), set.getString("login"),
+						set.getString("senha"), Perfil.valueOf(set
+								.getString("perfil")));
+				usuario.setId(set.getLong("cod_usuario"));
 			}
 
 			pstm.close();
 			connection.close();
-			if (usuario.getLogin().equals(target.getLogin()) && usuario.getSenha().equals(target.getSenha())) {
+			if (usuario.getLogin().equals(target.getLogin())
+					&& usuario.getSenha().equals(target.getSenha())) {
 				target.setSenha(null);
 				return target;
 			}
@@ -163,19 +165,18 @@ public class UsuarioDAO {
 	public Usuario buscaPoId(Long id) {
 		try {
 			this.connection = ConnectionFactory.getConnection();
-			pstm = this.connection.prepareStatement("select * from tb_usuario where cod_usuario = ?");
+			pstm = this.connection
+					.prepareStatement("select * from tb_usuario where cod_usuario = ?");
 			pstm.setLong(1, id);
 			pstm.execute();
 
 			ResultSet set = pstm.executeQuery();
 			while (set.next()) {
-				Usuario usuario = new Usuario();
+				Usuario usuario = new Usuario(set.getString("nome"),
+						set.getDate("dataNascimento"), set.getString("cpf"),
+						set.getString("email"), set.getString("login"),
+						Perfil.valueOf(set.getString("perfil")));
 				usuario.setId(set.getLong("cod_usuario"));
-				usuario.setLogin(set.getString("login"));
-				usuario.setEmail(set.getString("email"));
-				usuario.setNome(set.getString("nome"));
-				usuario.setCpf(set.getString("cpf"));
-				usuario.setPerfil(set.getInt("perfil"));
 				return usuario;
 			}
 

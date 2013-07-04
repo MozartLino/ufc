@@ -10,8 +10,8 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.annotation.Public;
 import br.com.each.dao.UsuarioDAO;
-import br.com.each.model.usuario.UserSession;
-import br.com.each.model.usuario.Usuario;
+import br.com.each.model.UserSession;
+import br.com.each.model.Usuario;
 
 @Resource
 public class UsuarioController {

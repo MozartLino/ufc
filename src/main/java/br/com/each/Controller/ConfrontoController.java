@@ -10,8 +10,8 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.dao.ConfrontoDAO;
-import br.com.each.model.confronto.Confronto;
-import br.com.each.model.confronto.Evento;
+import br.com.each.model.Confronto;
+import br.com.each.model.Evento;
 
 @Resource
 public class ConfrontoController {

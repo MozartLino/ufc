@@ -11,7 +11,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.each.dao.ComentarioDAO;
 import br.com.each.model.Comentario;
-import br.com.each.model.usuario.UserSession;
+import br.com.each.model.UserSession;
 
 @Resource
 public class ComentarioController {

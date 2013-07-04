@@ -2,25 +2,23 @@ package br.com.each.model;
 
 import java.sql.Date;
 
-public class Lutador {
+public class Lutador extends Pessoa {
 
 	private Long id;
-	private String nome;
 	private int peso;
 	private int envergadura;
 	private int altura;
 	private int cinturao;
-	private Date dataNascimento;
 	private String lugar;
 	private String sumario;
 
-	public Lutador(String nome, int peso, int envergadura, int altura, int cinturao, Date dataNascimento, String lugar, String sumario) {
-		this.nome = nome;
+	public Lutador(String nome, int peso, int envergadura, int altura,
+			int cinturao, Date dataNascimento, String lugar, String sumario) {
+		super(nome, dataNascimento);
 		this.peso = peso;
 		this.envergadura = envergadura;
 		this.altura = altura;
 		this.cinturao = cinturao;
-		this.dataNascimento = dataNascimento;
 		this.lugar = lugar;
 		this.sumario = sumario;
 	}
@@ -31,10 +29,6 @@ public class Lutador {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
 	}
 
 	public int getPeso() {
@@ -51,10 +45,6 @@ public class Lutador {
 
 	public int getCinturao() {
 		return cinturao;
-	}
-
-	public Date getDataNascimento() {
-		return dataNascimento;
 	}
 
 	public String getLugar() {
@@ -92,7 +82,10 @@ public class Lutador {
 
 	@Override
 	public String toString() {
-		return "Lutador [id=" + id + ", nome=" + nome + ", peso=" + peso + ", envergadura=" + envergadura + ", altura=" + altura + ", cinturao=" + cinturao + ", data_nascimento=" + dataNascimento + ", lugar=" + lugar + ", sumario=" + sumario + "]";
+		return "Lutador [id=" + id + ", nome=" + super.getNome() + ", peso="
+				+ peso + ", envergadura=" + envergadura + ", altura=" + altura
+				+ ", cinturao=" + cinturao + ", data_nascimento="
+				+ super.getDataNascimento() + ", lugar=" + lugar + ", sumario="
+				+ sumario + "]";
 	}
-
 }
