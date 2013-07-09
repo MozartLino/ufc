@@ -51,13 +51,14 @@ public class PayloadUFCBD {
 			pstm.execute();
 
 			// CREATE TABLE USUARIO
-			pstm = this.connection.prepareStatement("CREATE TABLE tb_usuario ("
-					+ " cod_usuario          SERIAL,"
-					+ " cpf                  VARCHAR(20) NOT NULL,"
-					+ " login                VARCHAR(20) NOT NULL,"
-					+ " senha                VARCHAR(20) NOT NULL,"
-					+ " email                VARCHAR(40) NOT NULL,"
-					+ " perfil     INT NOT NULL, PRIMARY KEY(cod_usuario))inherits (pessoa);");
+			pstm = this.connection
+					.prepareStatement("CREATE TABLE tb_usuario ("
+							+ " cod_usuario          SERIAL,"
+							+ " cpf                  VARCHAR(20) NOT NULL,"
+							+ " login                VARCHAR(20) NOT NULL,"
+							+ " senha                VARCHAR(20) NOT NULL,"
+							+ " email                VARCHAR(40) NOT NULL,"
+							+ " perfil     INT NOT NULL, PRIMARY KEY(cod_usuario))inherits (pessoa);");
 			pstm.execute();
 
 			// CREATE TABLE VIDEO
@@ -102,6 +103,7 @@ public class PayloadUFCBD {
 							+ " cod_categoria        INT NOT NULL,"
 							+ " cod_vitoria          INT,"
 							+ " PRIMARY KEY (cod_confronto),"
+							+ " FOREIGN KEY (cod_evento) REFERENCES tb_evento (cod_evento),"
 							+ " FOREIGN KEY (cod_lutador1) REFERENCES tb_lutador (cod_lutador),"
 							+ " FOREIGN KEY (cod_lutador2) REFERENCES tb_lutador (cod_lutador),"
 							+ " FOREIGN KEY (cod_vencedor) REFERENCES tb_lutador (cod_lutador),"
@@ -154,6 +156,18 @@ public class PayloadUFCBD {
 			pstm.execute();
 
 			pstm = this.connection
+					.prepareStatement("INSERT INTO tb_lutador (nome, peso, envergadura, altura, cinturao, data_nascimento, lugar, sumario) values('Ricardo Mozart Lino', 102, 50, 189, 1, '1980/05/05', 'Sao Paulo', 'mito');");
+			pstm.execute();
+
+			pstm = this.connection
+					.prepareStatement("INSERT INTO tb_lutador (nome, peso, envergadura, altura, cinturao, data_nascimento, lugar, sumario) values('Victor Belford', 106, 49, 180, 0, '1980/05/05', 'Sao Paulo', 'mito');");
+			pstm.execute();
+
+			pstm = this.connection
+					.prepareStatement("INSERT INTO tb_lutador (nome, peso, envergadura, altura, cinturao, data_nascimento, lugar, sumario) values('Jon Jones', 190, 50, 189, 1, '1983/05/05', 'California', 'Mtio Master');");
+			pstm.execute();
+
+			pstm = this.connection
 					.prepareStatement("INSERT INTO tb_video (cod_lutador1, cod_lutador2, url) values (1, 2, 'http://www.youtube.com/watch?v=M0OIdCpeyY8&feature=related');");
 			pstm.execute();
 
@@ -164,6 +178,8 @@ public class PayloadUFCBD {
 			pstm = this.connection
 					.prepareStatement("INSERT INTO tb_usuario (CPF, nome, data_nascimento, login, senha, email, perfil) values(39764341837,'Ricardo Mozart Lino', '1991/03/05', 'ricardo.lino', 'xxx', 'ricardo.lino@usp.br', 1);");
 			pstm.execute();
+
+			new UsuarioPayload(pstm, connection).createUsers();
 
 			pstm = this.connection
 					.prepareStatement("INSERT INTO tb_categoria (descricao, peso_maximo, peso_minimo) values('pena', 60, 73);");
@@ -189,21 +205,7 @@ public class PayloadUFCBD {
 					.prepareStatement("INSERT INTO tb_evento (descricao, status) values('UFC 154', 'ABERTO');");
 			pstm.execute();
 
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria) values(1, '2012/12/10', 3, 4, 1, 3, 1);");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria) values(2 , '2012/12/12', 1, 2, 1);");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria) values(1, '2012/12/05', 1, 3, 1, 1, 1);");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_confronto (cod_evento, data, cod_lutador1, cod_lutador2, cod_categoria, cod_vencedor, cod_vitoria)  values(2 , '2012/12/12', 2, 4, 1, 4, 1);");
-			pstm.execute();
+			new ConfrontoPayload(pstm, connection).createConfrontos();
 
 			pstm = this.connection
 					.prepareStatement("INSERT INTO tb_comentario (cod_usuario, cod_confronto, descricao, data) values(1, 1, 'muito boa luta', 14/10/2012);");
@@ -213,29 +215,7 @@ public class PayloadUFCBD {
 					.prepareStatement("INSERT INTO tb_comentario (cod_usuario, cod_confronto, descricao, data) values(2, 1, 'Excelente Luta', 14/10/2012);");
 			pstm.execute();
 
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(2, 1, 1)");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(1, 2, 3)");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(1, 3, 1)");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(2, 3, 3)");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(1, 4, 4)");
-			pstm.execute();
-
-			pstm = this.connection
-					.prepareStatement("INSERT INTO tb_aposta (cod_usuario, cod_confronto, cod_lutador) values(2, 4, 4)");
-			pstm.execute();
+			new ApostaPayload(pstm, connection).createApostas();
 
 			pstm.close();
 
