@@ -26,20 +26,18 @@ public class UsuarioPayload {
 	}
 
 	public void createUsers() throws SQLException {
-		for (int i = 0; i < 3; i++) {
+
+		pstm = this.connection.prepareStatement("INSERT INTO tb_usuario (CPF, nome, data_nascimento, login, senha, email, perfil) values(39199733832,'Victor Rodrigues', '1990/05/05', 'vicmiguel', '123abc', 'victor@usp.br', 1);");
+		pstm.execute();
+
+		pstm = this.connection.prepareStatement("INSERT INTO tb_usuario (CPF, nome, data_nascimento, login, senha, email, perfil) values(39764341837,'Ricardo Mozart Lino', '1991/03/05', 'ricardo.lino', 'xxx', 'ricardo.lino@usp.br', 1);");
+		pstm.execute();
+
+		for (int i = 0; i < 100; i++) {
 
 			for (String nome : getNomes()) {
 				String cpf = geradorDeCPFAleatorio();
-				pstm = this.connection
-						.prepareStatement("INSERT INTO tb_usuario (CPF, nome, data_nascimento, login, senha, email, perfil) values("
-								+ cpf
-								+ ", '"
-								+ nome
-								+ "', "
-								+ "'1990/05/05', '"
-								+ nome
-								+ "', "
-								+ "'senha default', '" + nome + "@usp.br', 2);");
+				pstm = this.connection.prepareStatement("INSERT INTO tb_usuario (CPF, nome, data_nascimento, login, senha, email, perfil) values(" + cpf + ", '" + nome + "', " + "'1990/05/05', '" + nome + "" + i + "', " + "'senha default', '" + nome + "@usp.br', 2);");
 				pstm.execute();
 			}
 		}

@@ -25,22 +25,18 @@ public class ApostaPayload {
 
 	public void createApostas() throws SQLException {
 		List<Confronto> confrontos = new ConfrontoDAO().lista();
-		for (int usuarioId = 1; usuarioId < 200; usuarioId++) {
-			
-			for (Confronto confronto : confrontos) {
+		for (int usuarioId = 1; usuarioId < 1000; usuarioId++) {
 
-				Long lutadorId = confronto.getLutador1().getId();
+				for (Confronto confronto : confrontos) {
 
-				if (new Random().nextInt(2) == 1) {
-					lutadorId = confronto.getLutador2().getId();
-				}
+					Long lutadorId = confronto.getLutador1().getId();
 
-				pstm = this.connection
-						.prepareStatement("INSERT INTO tb_aposta "
-								+ "(cod_usuario, cod_confronto, cod_lutador) "
-								+ "values(" + usuarioId + ", "
-								+ confronto.getId() + "," + lutadorId + ")");
-				pstm.execute();
+					if (new Random().nextInt(2) == 1) {
+						lutadorId = confronto.getLutador2().getId();
+					}
+
+					pstm = this.connection.prepareStatement("INSERT INTO tb_aposta " + "(cod_usuario, cod_confronto, cod_lutador) " + "values(" + usuarioId + ", " + confronto.getId() + "," + lutadorId + ")");
+					pstm.execute();
 
 			}
 		}
